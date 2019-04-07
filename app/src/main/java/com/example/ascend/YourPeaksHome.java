@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class yourpeaks extends AppCompatActivity {
+public class YourPeaksHome extends AppCompatActivity {
 
     private TextView mTextMessage;
 
