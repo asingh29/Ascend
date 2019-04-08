@@ -10,9 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".phasetasks"
+            android:label="@string/title_activity_phasetasks"></activity>
+        <activity
+            android:name=".peak_phases"
+            android:label="@string/title_activity_peak_phases" />
+        <activity
             android:name=".PitchComplete"
             android:label="@string/title_activity_pitch_complete"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BrowseFirstPage"
             android:label="@string/title_activity_browse_first_page" />
