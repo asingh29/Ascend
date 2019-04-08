@@ -1,0 +1,138 @@
+commit 8cb178bf7799cd22cf52876b6b691b88eae90825
+Author: Jordan Cohen <jordancohen@Jordans-MacBook-Pro.local>
+Date:   Sun Apr 7 23:10:12 2019 -0400
+
+    added rest of screens J
+
+commit 82ad13895696fcfbc94b89494eef45e9aeefc384
+Merge: 95b958d d2f1d82
+Author: Jordan Cohen <jordancohen@Jordans-MacBook-Pro.local>
+Date:   Sun Apr 7 22:29:09 2019 -0400
+
+    Merge branch 'master' of https://github.com/jhu-cs-uima-sp19/Ascend
+
+commit 95b958dc4ce683cb2e9814b12019fc92faf1752e
+Merge: a7e7552 b56ab9b
+Author: Jordan Cohen <jordancohen@Jordans-MacBook-Pro.local>
+Date:   Sun Apr 7 22:28:51 2019 -0400
+
+    ug
+
+commit d2f1d82e8c145280f020b803404d1b0a0b995660
+Author: jcohe105 <49041413+jcohe105@users.noreply.github.com>
+Date:   Sun Apr 7 22:27:29 2019 -0400
+
+    Delete Android.gitignore
+
+commit b56ab9b69eef86fb6d28116eb737eeabd8dd4394
+Author: jcohe105 <49041413+jcohe105@users.noreply.github.com>
+Date:   Sun Apr 7 22:25:44 2019 -0400
+
+    Update .gitignore
+
+commit a7e75526507a5c689c15640901f47ae1e0c4100e
+Merge: 96e6613 6bb60ab
+Author: Jordan Cohen <jordancohen@Jordans-MacBook-Pro.local>
+Date:   Sun Apr 7 22:24:51 2019 -0400
+
+    try now
+
+commit eaf4e8e1c43a93a210468fd111babb3fda141939
+Author: jcohe105 <49041413+jcohe105@users.noreply.github.com>
+Date:   Sun Apr 7 22:24:10 2019 -0400
+
+    Create Android.gitignore
+    
+    gitignore
+
+commit 96e66136771d168639a9210eb2ad9e0f93cc56cd
+Author: Jordan Cohen <jordancohen@Jordans-MacBook-Pro.local>
+Date:   Sun Apr 7 19:44:23 2019 -0400
+
+    fix1
+
+commit 6bb60ab693542999e0dd40aa14af7f3e6cec4b86
+Author: Udit Sharma <uditsharma@Udits-MacBook-Pro.local>
+Date:   Sun Apr 7 14:22:34 2019 -0400
+
+    created peak,phase and pitch classes
+
+commit d1be34046b876638df8d050f02a205529270e53d
+Author: Udit Sharma <uditsharma@Udits-MacBook-Pro.local>
+Date:   Sun Apr 7 13:06:00 2019 -0400
+
+    made pitch complete screen (fixed Amrit's mistake)
+
+commit 9f60b020f4dec610d6b0eafd2e167f354cc5dab0
+Author: Udit Sharma <uditsharma@Udits-MacBook-Pro.local>
+Date:   Sun Apr 7 12:33:17 2019 -0400
+
+    fixed Amrit's mistake of making a new Peak app instead of just adding an activity
+
+commit 02c9ef63cbb4586198e9c048cf1bdffdb696747c
+Author: Udit Sharma <uditsharma@Udits-MacBook-Pro.local>
+Date:   Sun Apr 7 12:14:45 2019 -0400
+
+    fixed Amrit's mistake of creating a new browse app
+
+commit a03597d311493211a28dff8a732cfe139f05df60
+Author: Jordan Cohen <jordancohen@Jordans-MacBook-Pro.local>
+Date:   Fri Apr 5 10:28:22 2019 -0400
+
+    j stuff in
+
+commit 1c871e30784e7e37dbcb4a5a507b2773e6864897
+Author: Jordan Cohen <jordancohen@Jordans-MacBook-Pro.local>
+Date:   Fri Apr 5 10:14:50 2019 -0400
+
+    jordans first thing
+
+commit dae4d7ee853e2b44816f14030e56f2e6b53395a1
+Author: Bumjin Kim <bkim63@jhu.edu>
+Date:   Fri Apr 5 09:58:15 2019 -0400
+
+    Create README.md
+
+commit 246bf8c13cda117bfb815d6ae75b0646a2869f3f
+Author: asingh29 <37641035+asingh29@users.noreply.github.com>
+Date:   Thu Apr 4 16:20:58 2019 -0400
+
+    Add files via upload
+
+commit 1c09d1c2b97578fb7d304f3c81927fde6d9e5b27
+Author: asingh29 <37641035+asingh29@users.noreply.github.com>
+Date:   Thu Apr 4 16:19:19 2019 -0400
+
+    Add files via upload
+
+commit a31a760cf564790dba44e4fd0e07671d142a8ed9
+Author: asingh29 <37641035+asingh29@users.noreply.github.com>
+Date:   Thu Apr 4 16:11:41 2019 -0400
+
+    Add files via upload
+
+commit 61c8138d7adf0f2d5dbf0e700168d4f84a2929ec
+Author: Bumjin Kim <bkim63@jhu.edu>
+Date:   Thu Apr 4 15:27:45 2019 -0400
+
+    running human icon for app
+    
+    added one small and one large app icon.
+
+commit 7d48dfeab6402f76196cb3bd97fd0e599b07fdc9
+Author: Bumjin Kim <bkim63@jhu.edu>
+Date:   Thu Apr 4 15:23:03 2019 -0400
+
+    adding more icons
+
+commit 2e90face20a327e2ee408da2764fe9483ad36cc2
+Author: Bumjin Kim <bkim63@jhu.edu>
+Date:   Thu Apr 4 14:36:56 2019 -0400
+
+    Images for app
+
+commit f05941a8cfa4027f52acefb199700b79a3768f43
+Author: Udit Sharma <uditsharma@Udits-MacBook-Pro.local>
+Date:   Thu Mar 28 15:51:18 2019 -0400
+
+    Initial commit
