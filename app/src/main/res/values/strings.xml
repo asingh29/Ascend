@@ -4,4 +4,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_yourpeaks">yourpeaks</string>
+    <string name="title_activity_browse_first_page">BrowseFirstPage</string>
+    <string name="title_activity_pitch_complete">PitchComplete</string>
 </resources>
