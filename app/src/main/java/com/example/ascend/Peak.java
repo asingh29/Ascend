@@ -26,4 +26,8 @@ public class Peak {
     public LocalDateTime getEnd() {
         return end;
     }
+    public Vector phaseVector() { return this.phase; }
+    public void addPhase(Phase p) {
+        this.phase.add(p);
+    }
 }
