@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,12 +49,16 @@ public class MainActivity extends AppCompatActivity {
 
         LocalDateTime start = LocalDateTime.of(2019,  4,  25,  3,  0);
         LocalDateTime end = LocalDateTime.of(2019,  7,  25,  3,  0);
+        LocalTime s = LocalTime.of(9,0);
+        LocalTime e = LocalTime.of(10,0);
         Peak peak1 = new Peak("Run a Marathon", "Run so fast", start, end);
         SharedPreferences.Editor editor = sharedpreferences.edit();
-
+        Phase phase1 = new Phase(start, end);
+        Pitch pitch1 = new Pitch("4 mile run", 1, s, e);
+        phase1.addPitch(pitch1);
+        peak1.addPhase(phase1);
         Gson gson = new Gson();
         String p1 = gson.toJson(peak1);
-
         editor.putString("p1", p1);
         editor.commit();
 
