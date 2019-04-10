@@ -1,16 +1,19 @@
 package com.example.ascend;
 
 import java.time.LocalDateTime;
+import java.util.GregorianCalendar;
 import java.util.Vector;
 
-public class Peak {
+import io.realm.RealmObject;
+
+public class Peak extends RealmObject {
     private String name;
     private String description;
     private Vector<Phase> phase;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private GregorianCalendar start;
+    private GregorianCalendar end;
 
-    Peak(String goal, String description, LocalDateTime s, LocalDateTime e) {
+    Peak(String goal, String description, GregorianCalendar s, GregorianCalendar e) {
         this.name = goal;
         this.description = description;
         this.start = s;
@@ -20,10 +23,10 @@ public class Peak {
         return this.name;
     }
     public String getDescription() {return this.description; }
-    public LocalDateTime getStart() {
+    public GregorianCalendar getStart() {
         return this.start;
     }
-    public LocalDateTime getEnd() {
+    public GregorianCalendar getEnd() {
         return end;
     }
     public Vector phaseVector() { return this.phase; }

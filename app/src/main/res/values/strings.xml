@@ -8,4 +8,5 @@
     <string name="title_activity_pitch_complete">PitchComplete</string>
     <string name="title_activity_peak_phases">peak_phases</string>
     <string name="title_activity_phasetasks">phasetasks</string>
+    <string name="title_activity_your_peaks">YourPeaks</string>
 </resources>
