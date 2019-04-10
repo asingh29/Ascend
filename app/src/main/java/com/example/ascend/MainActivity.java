@@ -1,12 +1,14 @@
 package com.example.ascend;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -31,10 +33,12 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_peaks:
                     mTextMessage.setText(R.string.title_dashboard);
+                    Intent i = new Intent(getApplicationContext(), YourPeaks.class);
+                    startActivity(i);
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_browse:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
@@ -54,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    public void onCLick(View view) {
+        Intent i = new Intent(getApplicationContext(), YourPeaks.class);
+        startActivity(i);
     }
 
 }
