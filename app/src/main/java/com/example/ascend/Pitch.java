@@ -5,14 +5,16 @@ import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Pitch {
+import io.realm.RealmObject;
+
+public class Pitch extends RealmObject {
     private String name;
     private int day;
     private String plan;
-    private LocalTime start;
-    private LocalTime end;
+    private GregorianCalendar start;
+    private GregorianCalendar end;
 
-    Pitch(String n, int d, LocalTime s, LocalTime e) {
+    Pitch(String n, int d, GregorianCalendar s, GregorianCalendar e) {
         this.day = d;
         this.start = s;
         this.end = e;
