@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         sharedpreferences = getSharedPreferences("sp", Context.MODE_PRIVATE);
         Realm.init(this);
         Realm realm = Realm.getDefaultInstance();
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 

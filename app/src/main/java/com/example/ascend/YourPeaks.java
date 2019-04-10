@@ -41,6 +41,7 @@ public class YourPeaks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_peaks);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_peaks);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         Realm.init(this);
