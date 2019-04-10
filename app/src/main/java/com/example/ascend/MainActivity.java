@@ -31,15 +31,12 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_peaks:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    Intent i = new Intent(getApplicationContext(), YourPeaks.class);
+                    Intent i = new Intent(MainActivity.this, YourPeaks.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_browse:
-                    mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
             return false;
@@ -55,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         Realm.init(this);
         Realm realm = Realm.getDefaultInstance();
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
