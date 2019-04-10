@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import io.realm.Realm;
@@ -56,14 +58,21 @@ public class YourPeaks extends AppCompatActivity {
 
     public void addPeak(View view) {
         Realm realm = Realm.getDefaultInstance();
-        GregorianCalendar peakStartDate = new GregorianCalendar(2019, 4, 10);
-        GregorianCalendar peakEndDate = new GregorianCalendar(2019, 5, 10);
+        Calendar cal = new GregorianCalendar();
+        cal.set(2019,4,10);
+        Date peakStartDate = cal.getTime();
+        cal.set(2019, 5, 10);
+        Date peakEndDate = cal.getTime();
         Peak peak1 = new Peak("Run a Marathon", "runfast, run hard", peakStartDate, peakEndDate);
-        GregorianCalendar phase1Start = new GregorianCalendar(2019, 4, 10);
-        GregorianCalendar phase1End = new GregorianCalendar(2019, 4, 30);
+        cal.set(2019, 4, 10);
+        Date phase1Start = cal.getTime();
+        cal.set(2019, 4, 30);
+        Date phase1End = cal.getTime();
         Phase phase1 = new Phase(phase1Start, phase1End);
-        GregorianCalendar pitch1Start = new GregorianCalendar(2019,4,1,9,0);
-        GregorianCalendar pitch1End = new GregorianCalendar(2019, 4, 1, 10,0);
+        cal.set(2019, 4, 1, 9, 0);
+        Date pitch1Start = cal.getTime();
+        cal.set(2019, 4, 1, 10, 0);
+        Date pitch1End = cal.getTime();
         Pitch pitch1 = new Pitch("4 mile run", 1, pitch1Start, pitch1End);
         phase1.addPitch(pitch1);
         peak1.addPhase(phase1);
