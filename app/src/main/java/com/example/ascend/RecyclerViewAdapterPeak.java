@@ -1,6 +1,7 @@
 package com.example.ascend;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -12,13 +13,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter3 extends  RecyclerView.Adapter<RecyclerViewAdapter3.ViewHolder> {
+public class RecyclerViewAdapterPeak extends  RecyclerView.Adapter<RecyclerViewAdapterPeak.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
 
     private ArrayList<Peak> peaks;
     private Context nContext;
 
-    public RecyclerViewAdapter3(ArrayList<Peak> p, Context c) {
+    public RecyclerViewAdapterPeak(ArrayList<Peak> p, Context c) {
         peaks = p;
         nContext = c;
     }
@@ -32,12 +33,20 @@ public class RecyclerViewAdapter3 extends  RecyclerView.Adapter<RecyclerViewAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
-        Peak p = peaks.get(i);
-        Log.d(TAG, p.getName());
+        final Peak p = peaks.get(i);
         viewHolder.name.setText(p.getName());
         viewHolder.time.setText(p.getStart().toString() + "" + p.getEnd().toString());
+
+        viewHolder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), peak_phases.class);
+                i.putExtra("peakname", p.getName());
+                nContext.startActivity(i);
+            }
+        });
     }
 
     @Override
