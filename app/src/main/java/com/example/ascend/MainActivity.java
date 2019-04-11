@@ -65,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
         navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         curPitches = new ArrayList<Pitch>();
-        String pitch1Start = "9:00";
+        /*String pitch1Start = "9:00";
         String pitch1End = "10:00";
         Pitch pitch1 = new Pitch("4 mile run", 5, pitch1Start, pitch1End);
         curPitches.add(pitch1);
-        initRecyclerView();
+        initRecyclerView();*/
         initCurPitches();
     }
 
@@ -100,5 +100,16 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(curPitches, this);
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        initCurPitches();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurPitches();
     }
 }
