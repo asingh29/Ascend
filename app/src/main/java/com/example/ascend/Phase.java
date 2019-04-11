@@ -76,7 +76,7 @@ public class Phase extends RealmObject {
             default: break;
         }
     }
-    public void setActive() {
-        active = true;
+    public void setActive(boolean val) {
+        active = val;
     }
 }

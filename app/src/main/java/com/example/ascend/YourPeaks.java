@@ -65,12 +65,14 @@ public class YourPeaks extends AppCompatActivity {
         Phase phase1 = new Phase(phase1Start, phase1End);
         String pitch1Start = "9:00";
         String pitch1End = "10:00";
-        Pitch pitch1 = new Pitch("4 mile run", 5, pitch1Start, pitch1End);
+        Pitch pitch1 = new Pitch("4 mile run", 4, pitch1Start, pitch1End);
         phase1.addPitch(pitch1);
+        phase1.setActive(true);
         peak1.addPhase(phase1);
 
         realm.beginTransaction();
         Peak marathon = realm.copyToRealm(peak1);
+        //Phase marathon_phase_one = realm.copyToRealm(phase1);
         realm.commitTransaction();
 
         /*LocalDateTime start = LocalDateTime.of(2019,  4,  25,  3,  0);
