@@ -26,7 +26,7 @@ public class RecyclerViewAdapter3 extends  RecyclerView.Adapter<RecyclerViewAdap
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.phases_layout, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.peaks_layout, viewGroup, false);
         ViewHolder Holder = new ViewHolder(view);
         return Holder;
     }
@@ -35,6 +35,7 @@ public class RecyclerViewAdapter3 extends  RecyclerView.Adapter<RecyclerViewAdap
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
         Peak p = peaks.get(i);
+        Log.d(TAG, p.getName());
         viewHolder.name.setText(p.getName());
         viewHolder.time.setText(p.getStart().toString() + "" + p.getEnd().toString());
     }
