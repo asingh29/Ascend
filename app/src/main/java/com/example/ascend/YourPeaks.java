@@ -51,16 +51,12 @@ public class YourPeaks extends AppCompatActivity {
         navigation.setSelectedItemId(R.id.navigation_peaks);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
         Realm.init(this);
         Realm realm = Realm.getDefaultInstance();
         curPeaks = new ArrayList<Peak>();
         initCurPeaks();
 
     }
-
-
-
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -89,13 +85,9 @@ public class YourPeaks extends AppCompatActivity {
         RealmResults<Peak> p = realm.where(Peak.class).findAll();
         for (int i = 0; i < p.size(); i++) {
             Peak cur = p.get(i);
-            if (cur != null) {
-                curPeaks.add(cur);
-            }
+            curPeaks.add(cur);
         }
-        if (curPeaks.size() > 0 ) {
-            initRecyclerView();
-        }
+        initRecyclerView();
     }
 
     public void addPeak(View view) {
@@ -118,6 +110,7 @@ public class YourPeaks extends AppCompatActivity {
         Pitch pitch1 = new Pitch("4 mile run", 4, pitch1Start, pitch1End);
         Pitch pitch2 = new Pitch("Eat a Healthy Lunch", 4, pitch2Start, pitch2End);
         pitch1.plan = "Warmup";
+        pitch2.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protien\n" + "1 serving rice\n";
         phase1.addPitch(pitch1);
         phase1.addPitch(pitch2);
         phase1.active = true;
@@ -125,23 +118,9 @@ public class YourPeaks extends AppCompatActivity {
 
         realm.beginTransaction();
         Peak marathon = realm.copyToRealm(peak1);
-        //Phase marathon_phase_one = realm.copyToRealm(phase1);
+        Phase marathon_phase_one = realm.copyToRealm(phase1);
         realm.commitTransaction();
-
-        /*LocalDateTime start = LocalDateTime.of(2019,  4,  25,  3,  0);
-        LocalDateTime end = LocalDateTime.of(2019,  7,  25,  3,  0);
-        LocalTime s = LocalTime.of(9,0);
-        LocalTime e = LocalTime.of(10,0);
-        Peak peak1 = new Peak("Run a Marathon", "Run so fast", start, end);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        Phase phase1 = new Phase(start, end);
-        Pitch pitch1 = new Pitch("4 mile run", 1, s, e);
-        phase1.addPitch(pitch1);
-        peak1.addPhase(phase1);
-        Gson gson = new Gson();
-        String p1 = gson.toJson(peak1);
-        editor.putString("p1", p1);
-        editor.commit();*/
+        initCurPeaks();
     }
 
 }

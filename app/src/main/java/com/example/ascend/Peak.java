@@ -11,11 +11,11 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 
 public class Peak extends RealmObject implements Serializable {
-    private String name;
-    private String description;
+    protected String name;
+    protected String description;
     protected RealmList<Phase> phase;
-    private Date start;
-    private Date end;
+    protected Date start;
+    protected Date end;
 
     public Peak() {
         super();
