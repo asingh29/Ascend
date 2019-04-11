@@ -1,9 +1,10 @@
 package com.example.ascend;
 
+import java.io.Serializable;
 import java.util.Date;
 import io.realm.RealmObject;
 
-public class Pitch extends RealmObject {
+public class Pitch extends RealmObject implements Serializable {
     private String name;
     private int day;
     private String plan;
