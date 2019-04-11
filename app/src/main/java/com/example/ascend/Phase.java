@@ -15,14 +15,14 @@ public class Phase extends RealmObject {
     private RealmList<Pitch> thursday;
     private RealmList<Pitch> friday;
     private RealmList<Pitch> saturday;
-    private Date start;
-    private Date end;
+    private String start;
+    private String end;
 
     public Phase() {
         super();
     }
 
-    public Phase(Date s, Date e) {
+    public Phase(String s, String e) {
 
         this.start = s;
         this.end = e;

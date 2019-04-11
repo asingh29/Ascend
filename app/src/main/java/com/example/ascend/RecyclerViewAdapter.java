@@ -16,13 +16,11 @@ import java.util.ArrayList;
 public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
 
-    private ArrayList<String> nPitchNames;
-    private ArrayList<String> nPitchTimes;
+    private ArrayList<Pitch> pitches;
     private Context nContext;
 
-    public RecyclerViewAdapter(ArrayList<String> names, ArrayList<String> times, Context c) {
-        nPitchNames = names;
-        nPitchTimes = times;
+    public RecyclerViewAdapter(ArrayList<Pitch> p, Context c) {
+        pitches = p;
         nContext = c;
     }
 
@@ -37,12 +35,14 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
-
+        Pitch p = pitches.get(i);
+        viewHolder.name.setText(p.getName());
+        viewHolder.time.setText(p.getStart().toString());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return pitches.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
