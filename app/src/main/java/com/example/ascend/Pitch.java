@@ -5,12 +5,12 @@ import java.util.Date;
 import io.realm.RealmObject;
 
 public class Pitch extends RealmObject implements Serializable {
-    private String name;
-    private int day;
-    private String plan;
-    private String start;
-    private String end;
-    private boolean complete;
+    protected String name;
+    protected int day;
+    protected String plan;
+    protected String start;
+    protected String end;
+    protected boolean complete;
 
     public Pitch() {
         super();

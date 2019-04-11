@@ -36,7 +36,7 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
-        Pitch p = pitches.get(i);
+        final Pitch p = pitches.get(i);
         viewHolder.name.setText(p.getName());
         viewHolder.time.setText(p.getStart().toString());
 
@@ -44,6 +44,7 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), PitchComplete.class);
+                i.putExtra("PitchName", p.name);
                 nContext.startActivity(i);
             }
         });
@@ -64,7 +65,7 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
             super(itemView);
             name = itemView.findViewById(R.id.pitch_name);
             time = itemView.findViewById(R.id.pitch_time);
-            arrow = itemView.findViewById(R.id.arrow_check);
+            arrow = itemView.findViewById(R.id.forward_arrow);
             layout = itemView.findViewById(R.id.pitch_layout);
         }
     }

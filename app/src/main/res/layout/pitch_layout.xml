@@ -27,11 +27,11 @@
         app:layout_constraintTop_toTopOf="@+id/pitch_name" />
 
     <ImageView
-        android:id="@+id/arrow_check"
+        android:id="@+id/forward_arrow"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="32dp"
         app:layout_constraintStart_toEndOf="@+id/pitch_time"
         app:layout_constraintTop_toTopOf="@+id/pitch_time"
-        app:srcCompat="@drawable/arrow" />
+        app:srcCompat="@drawable/forward_arrow" />
 </android.support.constraint.ConstraintLayout>
