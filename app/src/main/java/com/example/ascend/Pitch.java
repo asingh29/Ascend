@@ -1,31 +1,41 @@
 package com.example.ascend;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-
 import io.realm.RealmObject;
 
 public class Pitch extends RealmObject {
     private String name;
     private int day;
     private String plan;
-    private Date start;
-    private Date end;
+    private String start;
+    private String end;
+    private boolean complete;
 
     public Pitch() {
         super();
+        complete = false;
     }
 
-    public Pitch(String n, int d, Date s, Date e) {
+    public Pitch(String n, int d, String s, String e) {
         this.day = d;
         this.start = s;
         this.end = e;
         this.name = n;
+        complete = false;
     }
     public int getDay() {
         return this.day;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public String getEnd() {
+        return end;
     }
 }

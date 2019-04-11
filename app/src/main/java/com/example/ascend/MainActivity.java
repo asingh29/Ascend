@@ -10,12 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-
 import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity {
@@ -60,5 +54,7 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), YourPeaks.class);
         startActivity(i);
     }
+    private void initCurPitches() {
 
+    }
 }

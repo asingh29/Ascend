@@ -12,15 +12,15 @@ public class Peak extends RealmObject {
     private String name;
     private String description;
     private RealmList<Phase> phase;
-    private Date start;
-    private Date end;
+    private String start;
+    private String end;
 
     public Peak() {
         super();
         phase = new RealmList<Phase>();
     }
 
-    public Peak(String goal, String description, Date s, Date e) {
+    public Peak(String goal, String description, String s, String e) {
         this.name = goal;
         this.description = description;
         this.start = s;
@@ -30,10 +30,10 @@ public class Peak extends RealmObject {
         return this.name;
     }
     public String getDescription() {return this.description; }
-    public Date getStart() {
+    public String getStart() {
         return this.start;
     }
-    public Date getEnd() {
+    public String getEnd() {
         return end;
     }
     public RealmList<Phase> getPhase() { return this.phase; }
