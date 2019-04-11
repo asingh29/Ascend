@@ -65,9 +65,12 @@ public class YourPeaks extends AppCompatActivity {
         Phase phase1 = new Phase(phase1Start, phase1End);
         String pitch1Start = "9:00";
         String pitch1End = "10:00";
+        String pitch2Start = "11:00";
+        String pitch2End = "12:00";
         Pitch pitch1 = new Pitch("4 mile run", 4, pitch1Start, pitch1End);
+        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", 4, pitch2Start, pitch2End);
         phase1.addPitch(pitch1);
-        phase1.setActive(true);
+        phase1.active = true;
         peak1.addPhase(phase1);
 
         realm.beginTransaction();
