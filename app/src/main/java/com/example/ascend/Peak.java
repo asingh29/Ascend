@@ -1,5 +1,6 @@
 package com.example.ascend;
 
+import java.io.Serializable;
 import java.nio.file.attribute.DosFileAttributes;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -9,7 +10,7 @@ import java.util.Vector;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
-public class Peak extends RealmObject {
+public class Peak extends RealmObject implements Serializable {
     private String name;
     private String description;
     private RealmList<Phase> phase;

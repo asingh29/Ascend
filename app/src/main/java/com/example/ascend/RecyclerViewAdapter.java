@@ -1,6 +1,7 @@
 package com.example.ascend;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -38,6 +39,14 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
         Pitch p = pitches.get(i);
         viewHolder.name.setText(p.getName());
         viewHolder.time.setText(p.getStart().toString());
+
+        viewHolder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), PitchComplete.class);
+                nContext.startActivity(i);
+            }
+        });
     }
 
     @Override

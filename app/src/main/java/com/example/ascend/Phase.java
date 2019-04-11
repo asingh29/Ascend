@@ -1,5 +1,6 @@
 package com.example.ascend;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Vector;
@@ -7,7 +8,7 @@ import java.util.Vector;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
-public class Phase extends RealmObject {
+public class Phase extends RealmObject implements Serializable {
     private RealmList<Pitch> sunday;
     private RealmList<Pitch> monday;
     private RealmList<Pitch> tuesday;
