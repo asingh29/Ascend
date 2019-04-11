@@ -15,9 +15,11 @@ public class Phase extends RealmObject {
     private RealmList<Pitch> thursday;
     private RealmList<Pitch> friday;
     private RealmList<Pitch> saturday;
+    protected String name;
     private Date start;
     private Date end;
-    private boolean active;
+    protected String description;
+    protected boolean active;
 
     public Phase() {
         super();
@@ -78,5 +80,9 @@ public class Phase extends RealmObject {
     }
     public void setActive(boolean val) {
         active = val;
+    }
+
+    public String getName() {
+        return name;
     }
 }

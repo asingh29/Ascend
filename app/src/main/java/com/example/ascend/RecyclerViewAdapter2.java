@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter2 extends  RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class RecyclerViewAdapter2 extends  RecyclerView.Adapter<RecyclerViewAdapter2.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
 
     private ArrayList<Phase> phases;
@@ -33,10 +33,10 @@ public class RecyclerViewAdapter2 extends  RecyclerView.Adapter<RecyclerViewAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
         Phase p = phases.get(i);
-        viewHolder.name.setText(p.getName());
+        viewHolder.phase.setText(p.getName());
     }
 
     @Override
