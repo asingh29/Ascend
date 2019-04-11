@@ -42,6 +42,7 @@
         app:srcCompat="@drawable/todayspitches" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/cur_pitches"
         android:layout_width="395dp"
         android:layout_height="268dp"
         android:layout_marginTop="8dp"
