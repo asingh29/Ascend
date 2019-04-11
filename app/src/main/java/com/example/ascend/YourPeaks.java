@@ -5,17 +5,27 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.support.v7.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmList;
+import io.realm.RealmResults;
 
 public class YourPeaks extends AppCompatActivity {
+
+    private static final String TAG = "YourPeaks";
+    private ArrayList<Peak> curPeaks;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -46,8 +56,45 @@ public class YourPeaks extends AppCompatActivity {
 
         Realm.init(this);
         Realm realm = Realm.getDefaultInstance();
+        curPeaks = new ArrayList<Peak>();
+        initCurPeaks();
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        initCurPeaks();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurPeaks();
+    }
 
 
+    private void initRecyclerView() {
+        Log.d(TAG, "initRecyclerView: called");
+        RecyclerView recycler = findViewById(R.id.listOfPeaks);
+        RecyclerViewAdapter3 adapter = new RecyclerViewAdapter3(curPeaks, this);
+        recycler.setAdapter(adapter);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void initCurPeaks() {
+        Log.d(TAG, "initCurPitches: called");
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults<Peak> p = realm.where(Peak.class).findAll();
+        for (int i = 0; i < p.size(); i++) {
+            Peak cur = p.get(i);
+            if (cur != null) {
+                curPeaks.add(cur);
+            }
+        }
+        if (curPeaks.size() > 0 ) {
+            initRecyclerView();
+        }
     }
 
     public void addPeak(View view) {
@@ -57,7 +104,7 @@ public class YourPeaks extends AppCompatActivity {
         Date peakStartDate = cal.getTime();
         cal.set(2019, 5, 10);
         Date peakEndDate = cal.getTime();
-        Peak peak1 = new Peak("Run a Marathon", "runfast, run hard", peakStartDate, peakEndDate);
+        Peak peak1 = new Peak("Run a Marathon", "run fast, run hard", peakStartDate, peakEndDate);
         cal.set(2019, 4, 10);
         Date phase1Start = cal.getTime();
         cal.set(2019, 4, 30);
