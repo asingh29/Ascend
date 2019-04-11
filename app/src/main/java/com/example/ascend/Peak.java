@@ -13,7 +13,7 @@ import io.realm.RealmObject;
 public class Peak extends RealmObject implements Serializable {
     private String name;
     private String description;
-    private RealmList<Phase> phase;
+    protected RealmList<Phase> phase;
     private Date start;
     private Date end;
 
