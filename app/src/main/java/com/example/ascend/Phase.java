@@ -15,17 +15,33 @@ public class Phase extends RealmObject {
     private RealmList<Pitch> thursday;
     private RealmList<Pitch> friday;
     private RealmList<Pitch> saturday;
-    private String start;
-    private String end;
+    private Date start;
+    private Date end;
+    private boolean active;
 
     public Phase() {
         super();
+        active = false;
+        sunday = new RealmList<Pitch>();
+        monday = new RealmList<Pitch>();
+        tuesday = new RealmList<Pitch>();
+        wednesday = new RealmList<Pitch>();
+        thursday = new RealmList<Pitch>();
+        friday = new RealmList<Pitch>();
+        saturday = new RealmList<Pitch>();
     }
 
-    public Phase(String s, String e) {
-
+    public Phase(Date s, Date e) {
         this.start = s;
         this.end = e;
+        active = false;
+        sunday = new RealmList<Pitch>();
+        monday = new RealmList<Pitch>();
+        tuesday = new RealmList<Pitch>();
+        wednesday = new RealmList<Pitch>();
+        thursday = new RealmList<Pitch>();
+        friday = new RealmList<Pitch>();
+        saturday = new RealmList<Pitch>();
     }
 
     public RealmList<Pitch> getPitches(int day) {
@@ -44,13 +60,23 @@ public class Phase extends RealmObject {
         int day = p.getDay();
         switch(day) {
             case 0: sunday.add(p);
+                break;
             case 1: monday.add(p);
+                break;
             case 2: tuesday.add(p);
+                break;
             case 3: wednesday.add(p);
+                break;
             case 4: thursday.add(p);
+                break;
             case 5: friday.add(p);
+                break;
             case 6: saturday.add(p);
+                break;
             default: break;
         }
+    }
+    public void setActive() {
+        active = true;
     }
 }

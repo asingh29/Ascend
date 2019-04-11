@@ -52,15 +52,20 @@ public class YourPeaks extends AppCompatActivity {
 
     public void addPeak(View view) {
         Realm realm = Realm.getDefaultInstance();
-        String peakStartDate = "04/01/2019";
-        String peakEndDate = "07/01/2019";
+        Calendar cal = new GregorianCalendar();
+        cal.set(2019,4,10);
+        Date peakStartDate = cal.getTime();
+        cal.set(2019, 5, 10);
+        Date peakEndDate = cal.getTime();
         Peak peak1 = new Peak("Run a Marathon", "runfast, run hard", peakStartDate, peakEndDate);
-        String phase1Start = "04/01/2019";
-        String phase1End = "04/30/2019";
+        cal.set(2019, 4, 10);
+        Date phase1Start = cal.getTime();
+        cal.set(2019, 4, 30);
+        Date phase1End = cal.getTime();
         Phase phase1 = new Phase(phase1Start, phase1End);
         String pitch1Start = "9:00";
         String pitch1End = "10:00";
-        Pitch pitch1 = new Pitch("4 mile run", 1, pitch1Start, pitch1End);
+        Pitch pitch1 = new Pitch("4 mile run", 5, pitch1Start, pitch1End);
         phase1.addPitch(pitch1);
         peak1.addPhase(phase1);
 
