@@ -9,7 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -18,8 +17,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
-import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class YourPeaks extends AppCompatActivity {
@@ -54,12 +51,16 @@ public class YourPeaks extends AppCompatActivity {
         navigation.setSelectedItemId(R.id.navigation_peaks);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+
         Realm.init(this);
         Realm realm = Realm.getDefaultInstance();
         curPeaks = new ArrayList<Peak>();
         initCurPeaks();
 
     }
+
+
+
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -77,7 +78,7 @@ public class YourPeaks extends AppCompatActivity {
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: called");
         RecyclerView recycler = findViewById(R.id.listOfPeaks);
-        RecyclerViewAdapter3 adapter = new RecyclerViewAdapter3(curPeaks, this);
+        RecyclerViewAdapterPeak adapter = new RecyclerViewAdapterPeak(curPeaks, this);
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
     }
