@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter3 extends  RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class RecyclerViewAdapter3 extends  RecyclerView.Adapter<RecyclerViewAdapter3.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
 
     private ArrayList<Peak> peaks;
@@ -32,7 +32,7 @@ public class RecyclerViewAdapter3 extends  RecyclerView.Adapter<RecyclerViewAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
         Peak p = peaks.get(i);
         viewHolder.name.setText(p.getName());
