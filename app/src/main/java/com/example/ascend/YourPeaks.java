@@ -116,7 +116,9 @@ public class YourPeaks extends AppCompatActivity {
         String pitch2End = "12:00";
         Pitch pitch1 = new Pitch("4 mile run", 4, pitch1Start, pitch1End);
         Pitch pitch2 = new Pitch("Eat a Healthy Lunch", 4, pitch2Start, pitch2End);
+        pitch1.plan = "Warmup";
         phase1.addPitch(pitch1);
+        phase1.addPitch(pitch2);
         phase1.active = true;
         peak1.addPhase(phase1);
 
