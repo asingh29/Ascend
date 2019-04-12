@@ -103,7 +103,7 @@ public class YourPeaks extends AppCompatActivity {
         Date phase1Start = cal.getTime();
         cal.set(2019, 4, 30);
         Date phase1End = cal.getTime();
-        Phase phase1 = new Phase(phase1Start, phase1End, "Warming Up");
+        Phase phase1 = new Phase(phase1Start, phase1End, "Peak1Phase1", "Warming Up");
         String pitch1Start = "9:00";
         String pitch1End = "10:00";
         String pitch2Start = "11:00";
@@ -117,9 +117,34 @@ public class YourPeaks extends AppCompatActivity {
         phase1.active = true;
         peak1.addPhase(phase1);
 
+        cal.set(2019,4,10);
+        Date peak2StartDate = cal.getTime();
+        cal.set(2019, 5, 10);
+        Date peak2EndDate = cal.getTime();
+        Peak peak2 = new Peak("Run a Marathon2", "run fast, run hard", peakStartDate, peakEndDate);
+        cal.set(2019, 4, 10);
+        Date phase2Start = cal.getTime();
+        cal.set(2019, 4, 30);
+        Date phase2End = cal.getTime();
+        Phase phase12 = new Phase(phase1Start, phase1End, "Peak2Phase2", "Warming Up");
+        String pitch3Start = "9:00";
+        String pitch3End = "10:00";
+        String pitch4Start = "11:00";
+        String pitch4End = "12:00";
+        Pitch pitch3 = new Pitch("4 mile run2", 5, pitch1Start, pitch1End);
+        Pitch pitch4 = new Pitch("Eat a Healthy Lunch2", 5, pitch2Start, pitch2End);
+        pitch3.plan = "Warmup";
+        pitch4.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protien\n" + "1 serving rice\n";
+        phase12.addPitch(pitch3);
+        phase12.addPitch(pitch4);
+        phase12.active = true;
+        peak2.addPhase(phase12);
+
         realm.beginTransaction();
-        //realm.deleteAll();
-        Peak marathon = realm.copyToRealm(peak1);
+        Peak marathon = realm.where(Peak.class).equalTo("name", "Run a Marathon").findFirst();
+        if (marathon == null) realm.copyToRealm(peak1);
+        Peak marathon2 = realm.where(Peak.class).equalTo("name", "Run a Marathon2").findFirst();
+        if (marathon2 == null) realm.copyToRealm(peak2);
         realm.commitTransaction();
         initCurPeaks();
     }

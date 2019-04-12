@@ -43,7 +43,7 @@ public class RecyclerViewAdapterPeak extends  RecyclerView.Adapter<RecyclerViewA
             @Override
             public void onClick(View v) {
                 Intent j = new Intent(v.getContext(), peak_phases.class);
-                j.putExtra("peakname", p.getName());
+                j.putExtra("peakname", p.name);
                 nContext.startActivity(j);
             }
         });
@@ -51,7 +51,7 @@ public class RecyclerViewAdapterPeak extends  RecyclerView.Adapter<RecyclerViewA
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), peak_phases.class);
-                i.putExtra("peakname", p.getName());
+                i.putExtra("peakname", p.name);
                 nContext.startActivity(i);
             }
         });

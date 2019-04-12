@@ -9,8 +9,10 @@ import java.util.Vector;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Peak extends RealmObject implements Serializable {
+    @PrimaryKey
     protected String name;
     protected String description;
     protected RealmList<Phase> phase;

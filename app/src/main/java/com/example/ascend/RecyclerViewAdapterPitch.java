@@ -43,6 +43,7 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
 
     @Override
     public int getItemCount() {
+        Log.d(TAG, "getItemCount: " + pitches.size());
         return pitches.size();
     }
 
