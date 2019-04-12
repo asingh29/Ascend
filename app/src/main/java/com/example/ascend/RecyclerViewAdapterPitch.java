@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerViewAdapterPitch.ViewHolder> {
 
     private static final String TAG = "RecyclerViewAdapterPitc";
+    String[] days = {"Su", "M", "T", "W", "Th", "F", "S"};
 
     private ArrayList<Pitch> pitches;
     private Context nContext;
@@ -49,6 +50,9 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
                 Intent i = new Intent(v.getContext(), pitchDescription.class);
                 i.putExtra("phasename", phasename);
                 i.putExtra("peakname", peakname);
+                i.putExtra("start", p.getStart());
+                i.putExtra("end", p.getEnd());
+                i.putExtra("day", days[p.getDay()]);
                 nContext.startActivity(i);
             }
         });
@@ -58,6 +62,9 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
                 Intent i = new Intent(v.getContext(), pitchDescription.class);
                 i.putExtra("phasename", phasename);
                 i.putExtra("peakname", peakname);
+                i.putExtra("start", p.getStart());
+                i.putExtra("end", p.getEnd());
+                i.putExtra("day", days[p.getDay()]);
                 nContext.startActivity(i);
             }
         });
