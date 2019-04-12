@@ -36,9 +36,10 @@ public class Phase extends RealmObject implements Serializable {
         all = new RealmList<Pitch>();
     }
 
-    public Phase(Date s, Date e) {
+    public Phase(Date s, Date e, String description) {
         this.start = s;
         this.end = e;
+        this.description = description;
         active = false;
         sunday = new RealmList<Pitch>();
         monday = new RealmList<Pitch>();
@@ -48,6 +49,7 @@ public class Phase extends RealmObject implements Serializable {
         friday = new RealmList<Pitch>();
         saturday = new RealmList<Pitch>();
         all = new RealmList<Pitch>();
+
 
     }
 
@@ -109,10 +111,10 @@ public class Phase extends RealmObject implements Serializable {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 }
