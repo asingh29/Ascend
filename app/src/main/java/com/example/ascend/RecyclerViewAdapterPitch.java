@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerViewAdapterPitch.ViewHolder> {
 
-    private static final String TAG = "RecyclerViewAdapter";
+    private static final String TAG = "RecyclerViewAdapterPitc";
 
     private ArrayList<Pitch> pitches;
     private Context nContext;
