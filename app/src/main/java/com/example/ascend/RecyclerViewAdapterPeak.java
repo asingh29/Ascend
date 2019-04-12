@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapterPeak extends  RecyclerView.Adapter<RecyclerViewAdapterPeak.ViewHolder> {
-    private static final String TAG = "RecyclerViewAdapter";
+    private static final String TAG = "RecyclerViewAdapterPeak";
 
     private ArrayList<Peak> peaks;
     private Context nContext;
@@ -39,7 +39,14 @@ public class RecyclerViewAdapterPeak extends  RecyclerView.Adapter<RecyclerViewA
         final Peak p = peaks.get(i);
         viewHolder.name.setText(p.getName());
         viewHolder.time.setText(p.getStart().toString() + "" + p.getEnd().toString());
-
+        viewHolder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent j = new Intent(v.getContext(), peak_phases.class);
+                j.putExtra("peakname", p.getName());
+                nContext.startActivity(j);
+            }
+        });
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
