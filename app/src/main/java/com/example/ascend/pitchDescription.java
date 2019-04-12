@@ -29,7 +29,7 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
     String format;
     String start1;
     String end1;
-    final String peakname;
+    String peakname;
     int hour;
     private boolean fromstart;
     int min;
@@ -71,7 +71,7 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        final String peakName = i.getStringExtra("peakname");
+        peakname = i.getStringExtra("peakname");
         Button butt = (Button) findViewById(R.id.button);
         Button butt2 = (Button) findViewById(R.id.button2);
         butt.setOnClickListener(new View.OnClickListener() {
@@ -110,10 +110,10 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         }
         if (fromstart == true) {
             start1 = "" + hourOfDay + ":" + minute + " " + format;
-            name.setText("Peak: " + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
+            name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
         } else if (fromstart == false) {
             end1 = "" + hourOfDay + ":" + minute + " " + format;
-            name.setText("Peak: " + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
+            name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
         }
     }
 
