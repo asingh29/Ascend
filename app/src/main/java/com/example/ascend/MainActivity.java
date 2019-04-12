@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "initCurPitches: called");
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
+        curPitches.clear();
         Realm realm = Realm.getDefaultInstance();
         RealmResults<Phase> p = realm.where(Phase.class).equalTo("active", true).findAll();
         for (int i = 0; i < p.size(); i++) {
@@ -105,12 +106,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        initCurPitches();
+        //initCurPitches();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        initCurPitches();
+        //initCurPitches();
     }
 }

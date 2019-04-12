@@ -61,13 +61,13 @@ public class YourPeaks extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        initCurPeaks();
+        //initCurPeaks();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        initCurPeaks();
+        //initCurPeaks();
     }
 
 
@@ -81,13 +81,16 @@ public class YourPeaks extends AppCompatActivity {
 
     private void initCurPeaks() {
         Log.d(TAG, "initCurPitches: called");
+        curPeaks.clear();
         Realm realm = Realm.getDefaultInstance();
         RealmResults<Peak> p = realm.where(Peak.class).findAll();
         for (int i = 0; i < p.size(); i++) {
             Peak cur = p.get(i);
             curPeaks.add(cur);
         }
-        initRecyclerView();
+        if (curPeaks.size() > 0) {
+            initRecyclerView();
+        }
     }
 
     public void addPeak(View view) {
@@ -117,6 +120,7 @@ public class YourPeaks extends AppCompatActivity {
         peak1.addPhase(phase1);
 
         realm.beginTransaction();
+        //realm.deleteAll();
         Peak marathon = realm.copyToRealm(peak1);
         realm.commitTransaction();
         initCurPeaks();
