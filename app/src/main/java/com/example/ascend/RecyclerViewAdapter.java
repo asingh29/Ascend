@@ -40,7 +40,7 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
         viewHolder.name.setText(p.getName());
         viewHolder.time.setText(p.getStart().toString());
         if(p.complete) {
-            Log.d(TAG, "onBindViewHolder: " + p.complete);
+            Log.d(TAG, "onBindViewHolder:" + p.complete);
             ImageView arrow_check = viewHolder.arrow;
             arrow_check.setImageResource(R.drawable.check_mark);
         }
