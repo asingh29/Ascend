@@ -37,7 +37,7 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
         final Phase p = phases.get(i);
-        viewHolder.phase.setText(p.getName());
+        viewHolder.phase.setText("Phase " + (i + 1));
         viewHolder.details.setText(p.getDescription());
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
