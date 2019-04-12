@@ -19,9 +19,11 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
 
     private ArrayList<Phase> phases;
     private Context nContext;
+    String peakname;
 
-    public RecyclerViewAdapterPhase(ArrayList<Phase> p, Context c) {
+    public RecyclerViewAdapterPhase(ArrayList<Phase> p, Context c, String peak) {
         phases = p;
+        peakname = peak;
         nContext = c;
     }
 
@@ -39,11 +41,13 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
         final Phase p = phases.get(i);
         viewHolder.phase.setText("Phase " + (i + 1));
         viewHolder.details.setText(p.getDescription());
+
         viewHolder.phase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), phasetasks.class);
                 i.putExtra("phasename", p.getName());
+                i.putExtra("peakname", peakname);
                 nContext.startActivity(i);
             }
         });
@@ -52,6 +56,7 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), phasetasks.class);
                 i.putExtra("phasename", p.getName());
+                i.putExtra("peakname", peakname);
                 nContext.startActivity(i);
             }
         });

@@ -76,7 +76,7 @@ public class peak_phases extends AppCompatActivity {
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: called");
         RecyclerView recycler = findViewById(R.id.listOfPeaks);
-        RecyclerViewAdapterPhase adapter = new RecyclerViewAdapterPhase(curPhases, this);
+        RecyclerViewAdapterPhase adapter = new RecyclerViewAdapterPhase(curPhases, this, peakname);
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
     }

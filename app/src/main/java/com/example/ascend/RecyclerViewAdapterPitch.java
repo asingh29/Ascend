@@ -1,6 +1,7 @@
 package com.example.ascend;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -18,9 +19,13 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
 
     private ArrayList<Pitch> pitches;
     private Context nContext;
+    private String peakname;
+    private String phasename;
 
-    public RecyclerViewAdapterPitch(ArrayList<Pitch> p, Context c) {
+    public RecyclerViewAdapterPitch(ArrayList<Pitch> p, Context c, String phase, String peak) {
         pitches = p;
+        peakname = peak;
+        phasename = phase;
         nContext = c;
     }
 
@@ -38,6 +43,24 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
         final Pitch p = pitches.get(i);
         viewHolder.name.setText(p.getName());
         viewHolder.time.setText(p.getStart() + "-" + p.getEnd());
+        viewHolder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), pitchDescription.class);
+                i.putExtra("phasename", phasename);
+                i.putExtra("peakname", peakname);
+                nContext.startActivity(i);
+            }
+        });
+        viewHolder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), pitchDescription.class);
+                i.putExtra("phasename", phasename);
+                i.putExtra("peakname", peakname);
+                nContext.startActivity(i);
+            }
+        });
     }
 
 

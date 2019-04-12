@@ -16,6 +16,9 @@
             android:name=".phasetasks"
             android:label="@string/title_activity_phasetasks" />
         <activity
+            android:name=".pitchDescription"
+            android:label="pitchDescription" />
+        <activity
             android:name=".peak_phases"
             android:label="@string/title_activity_peak_phases"
             android:theme="@style/AppTheme.NoActionBar" />
