@@ -118,7 +118,6 @@ public class YourPeaks extends AppCompatActivity {
 
         realm.beginTransaction();
         Peak marathon = realm.copyToRealm(peak1);
-        Phase marathon_phase_one = realm.copyToRealm(phase1);
         realm.commitTransaction();
         initCurPeaks();
     }

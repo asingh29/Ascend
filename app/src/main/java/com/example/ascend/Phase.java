@@ -9,17 +9,17 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 
 public class Phase extends RealmObject implements Serializable {
-    private RealmList<Pitch> sunday;
-    private RealmList<Pitch> monday;
-    private RealmList<Pitch> tuesday;
-    private RealmList<Pitch> wednesday;
-    private RealmList<Pitch> thursday;
-    private RealmList<Pitch> friday;
-    private RealmList<Pitch> saturday;
-    private RealmList<Pitch> all;
+    protected RealmList<Pitch> sunday;
+    protected RealmList<Pitch> monday;
+    protected RealmList<Pitch> tuesday;
+    protected RealmList<Pitch> wednesday;
+    protected RealmList<Pitch> thursday;
+    protected RealmList<Pitch> friday;
+    protected RealmList<Pitch> saturday;
+    protected RealmList<Pitch> all;
     protected String name;
-    private Date start;
-    private Date end;
+    protected Date start;
+    protected Date end;
     protected String description;
     protected boolean active;
 

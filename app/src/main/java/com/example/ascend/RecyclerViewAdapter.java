@@ -39,6 +39,10 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
         final Pitch p = pitches.get(i);
         viewHolder.name.setText(p.getName());
         viewHolder.time.setText(p.getStart().toString());
+        if(p.complete) {
+            ImageView arrow_check = viewHolder.arrow;
+            arrow_check.setImageResource(R.drawable.check_mark);
+        }
 
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
