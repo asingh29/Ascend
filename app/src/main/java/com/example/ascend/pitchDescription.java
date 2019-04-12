@@ -29,7 +29,9 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
     String format;
     String start1;
     String end1;
+    final String peakname;
     int hour;
+    private boolean fromstart;
     int min;
     String[] days = {"Su", "M", "T", "W", "Th", "F", "S"};
 
@@ -55,6 +57,43 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         }
     };
 
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.pitch_description);
+        Intent i = getIntent();
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(config);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_home);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        final String peakName = i.getStringExtra("peakname");
+        Button butt = (Button) findViewById(R.id.button);
+        Button butt2 = (Button) findViewById(R.id.button2);
+        butt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timePicker1 = new TimePickerFragment();
+                fromstart = true;
+                timePicker1.show(getSupportFragmentManager(), "time picker");
+            }
+        });
+
+        butt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timepicker2 = new TimePickerFragment();
+                fromstart = false;
+                timepicker2.show(getSupportFragmentManager(), "time picker2");
+            }
+        });
+
+    }
+
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         name = findViewById(R.id.Name);
@@ -69,68 +108,13 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         } else {
             format = "AM";
         }
-        if (view.getId() == R.id.button) {
+        if (fromstart == true) {
             start1 = "" + hourOfDay + ":" + minute + " " + format;
             name.setText("Peak: " + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
-        } else if (view.getId() == R.id.button2) {
+        } else if (fromstart == false) {
             end1 = "" + hourOfDay + ":" + minute + " " + format;
             name.setText("Peak: " + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
         }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.pitch_description);
-        Intent i = getIntent();
-        timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
-        timePicker2 = findViewById(R.id.timePicker2);
-        Realm.init(this);
-        RealmConfiguration config = new RealmConfiguration.Builder()
-                .deleteRealmIfMigrationNeeded()
-                .build();
-        Realm.setDefaultConfiguration(config);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setSelectedItemId(R.id.navigation_home);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        final String peakName = i.getStringExtra("peakname");
-        final String start = i.getStringExtra("start");
-        String end = i.getStringExtra("end");
-        String day = i.getStringExtra("day");
-        name = findViewById(R.id.Name);
-        //hour = timePicker1.getCurrentHour();
-        //min = timePicker1.getCurrentMinute();
-        if (hour == 0) {
-            hour += 12;
-            format = "AM";
-        } else if (hour == 12) {
-            format = "PM";
-        } else if (hour > 12) {
-            hour -= 12;
-            format = "PM";
-        } else {
-            format = "AM";
-        }
-        name.setText("Peak: " + peakName + "\n" + new StringBuilder().append(hour).append(" : ").append(min).append(" ").append(format));
-
-        Button butt = (Button) findViewById(R.id.button);
-        Button butt2 = (Button) findViewById(R.id.button2);
-        butt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFragment timePicker1 = new TimePickerFragment();
-                timePicker1.show(getSupportFragmentManager(), "time picker");
-            }
-        });
-
-        butt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFragment timepicker2 = new TimePickerFragment();
-                timepicker2.show(getSupportFragmentManager(), "time picker2");
-            }
-        });
-
     }
 
 
