@@ -65,7 +65,7 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
             super(itemView);
             name = itemView.findViewById(R.id.pitch_name);
             time = itemView.findViewById(R.id.pitch_time);
-            arrow = itemView.findViewById(R.id.forward_arrow);
+            //arrow = itemView.findViewById(R.id.forward_arrow);
             layout = itemView.findViewById(R.id.pitch_layout);
         }
     }
