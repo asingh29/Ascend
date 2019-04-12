@@ -102,7 +102,7 @@ public class YourPeaks extends AppCompatActivity {
         Date phase1Start = cal.getTime();
         cal.set(2019, 4, 30);
         Date phase1End = cal.getTime();
-        Phase phase1 = new Phase(phase1Start, phase1End);
+        Phase phase1 = new Phase(phase1Start, phase1End, "Warming Up");
         String pitch1Start = "9:00";
         String pitch1End = "10:00";
         String pitch2Start = "11:00";
