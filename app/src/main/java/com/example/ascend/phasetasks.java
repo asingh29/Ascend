@@ -23,6 +23,7 @@ public class phasetasks extends AppCompatActivity {
     private static final String TAG = "phase_tasks";
     private ArrayList<Pitch> curPitches;
     private String phasename;
+    private String peakname;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -54,6 +55,8 @@ public class phasetasks extends AppCompatActivity {
         setContentView(R.layout.activity_phasetasks);
         Intent i = getIntent();
         phasename = i.getStringExtra("phasename");
+        peakname = i.getStringExtra("peakname");
+
 
         mTextMessage = (TextView) findViewById(R.id.message);
         mTextMessage = (TextView) findViewById(R.id.message);
@@ -69,7 +72,7 @@ public class phasetasks extends AppCompatActivity {
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: called");
         RecyclerView recycler = findViewById(R.id.cur_phasetasks);
-        RecyclerViewAdapterPitch adapter = new RecyclerViewAdapterPitch(curPitches, this);
+        RecyclerViewAdapterPitch adapter = new RecyclerViewAdapterPitch(curPitches, this, phasename, peakname);
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
     }
