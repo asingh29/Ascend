@@ -40,6 +40,7 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
         viewHolder.name.setText(p.getName());
         viewHolder.time.setText(p.getStart().toString());
         if(p.complete) {
+            Log.d(TAG, "onBindViewHolder: " + p.complete);
             ImageView arrow_check = viewHolder.arrow;
             arrow_check.setImageResource(R.drawable.check_mark);
         }
@@ -69,7 +70,7 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
             super(itemView);
             name = itemView.findViewById(R.id.pitch_name);
             time = itemView.findViewById(R.id.pitch_time);
-            //arrow = itemView.findViewById(R.id.forward_arrow);
+            arrow = itemView.findViewById(R.id.forward_arrow);
             layout = itemView.findViewById(R.id.pitch_layout);
         }
     }
