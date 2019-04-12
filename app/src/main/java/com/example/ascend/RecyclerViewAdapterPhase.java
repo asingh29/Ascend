@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerViewAdapterPhase.ViewHolder> {
-    private static final String TAG = "RecyclerViewAdapter";
+    private static final String TAG = "RecyclerViewAdapterPhas";
 
     private ArrayList<Phase> phases;
     private Context nContext;
@@ -39,6 +39,14 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
         final Phase p = phases.get(i);
         viewHolder.phase.setText(p.getName());
         viewHolder.details.setText(p.getDescription());
+        viewHolder.phase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), phasetasks.class);
+                i.putExtra("phasename", p.getName());
+                nContext.startActivity(i);
+            }
+        });
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
