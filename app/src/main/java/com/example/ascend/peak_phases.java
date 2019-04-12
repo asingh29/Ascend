@@ -88,9 +88,8 @@ public class peak_phases extends AppCompatActivity {
         Peak peaky = p.get(0);
         for (int i = 0; i < peaky.phase.size(); i++) {
             Phase cur = peaky.phase.get(i);
-            if (cur != null) {
-                curPhases.add(cur);
-            }
+            curPhases.add(cur);
+
         }
         if (curPhases.size() > 0 ) {
             initRecyclerView();

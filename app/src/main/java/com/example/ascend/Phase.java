@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Phase extends RealmObject implements Serializable {
     protected RealmList<Pitch> sunday;
@@ -17,6 +18,7 @@ public class Phase extends RealmObject implements Serializable {
     protected RealmList<Pitch> friday;
     protected RealmList<Pitch> saturday;
     protected RealmList<Pitch> all;
+    @PrimaryKey
     protected String name;
     protected Date start;
     protected Date end;
@@ -36,8 +38,9 @@ public class Phase extends RealmObject implements Serializable {
         all = new RealmList<Pitch>();
     }
 
-    public Phase(Date s, Date e, String description) {
+    public Phase(Date s, Date e, String n, String description) {
         this.start = s;
+        name = n;
         this.end = e;
         this.description = description;
         active = false;

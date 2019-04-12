@@ -63,7 +63,7 @@ public class phasetasks extends AppCompatActivity {
         Realm.init(this);
         Realm realm = Realm.getDefaultInstance();
         curPitches = new ArrayList<Pitch>();
-        initCurPeaks();
+        initCurPitches();
     }
 
     private void initRecyclerView() {
@@ -74,16 +74,16 @@ public class phasetasks extends AppCompatActivity {
         recycler.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void initCurPeaks() {
+    private void initCurPitches() {
         Log.d(TAG, "initCurPitches: called");
         Realm realm = Realm.getDefaultInstance();
         RealmResults<Phase> p = realm.where(Phase.class).equalTo("name", phasename).findAll();
-        RealmList<Pitch> phasey = p.get(0).getPitches(7);
+        RealmList<Pitch> phasey = p.get(0).all;
+        Log.d(TAG, "initCurPitches: " + phasey.size());
         for (int i = 0; i < phasey.size(); i++) {
             Pitch cur = phasey.get(i);
-            if (cur != null) {
-                curPitches.add(cur);
-            }
+            curPitches.add(cur);
+
         }
         if (curPitches.size() > 0 ) {
             initRecyclerView();
