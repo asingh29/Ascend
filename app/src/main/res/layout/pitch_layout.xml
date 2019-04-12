@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/pitch_layout">
 
@@ -21,17 +21,22 @@
         android:id="@+id/pitch_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="60dp"
         android:text="TextView"
+        android:layout_gravity="left"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pitch_name"
         app:layout_constraintTop_toTopOf="@+id/pitch_name" />
 
     <ImageView
         android:id="@+id/forward_arrow"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_gravity = "right"
         app:layout_constraintStart_toEndOf="@+id/pitch_time"
         app:layout_constraintTop_toTopOf="@+id/pitch_time"
-        app:srcCompat="@drawable/forward_arrow" />
+        app:srcCompat="@drawable/forward_arrow"
+        android:layout_centerVertical = "true"/>
+
 </android.support.constraint.ConstraintLayout>
