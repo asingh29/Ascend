@@ -17,6 +17,7 @@ public class PitchComplete extends AppCompatActivity {
     TextView time;
     TextView plan;
     String[] days = {"Su", "M", "T", "W", "Th", "F", "S"};
+    Pitch pitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,25 @@ public class PitchComplete extends AppCompatActivity {
         Realm realm = Realm.getDefaultInstance();
         String pitchName = i.getStringExtra("PitchName");
         RealmResults<Pitch> realmPitch = realm.where(Pitch.class).equalTo("name", pitchName).findAll();
-        Pitch p = realmPitch.get(0);
+        pitch = realmPitch.get(0);
         time = findViewById(R.id.time);
         plan = findViewById(R.id.plan_string);
-        time.setText(days[p.day] + "\n" + p.start + "-" + p.end);
-        plan.setText(p.plan);
+        time.setText(days[pitch.day] + "\n" + pitch.start + "-" + pitch.end);
+        plan.setText(pitch.plan);
+    }
+    public void pitchComplete(View view) {
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        pitch.complete = true;
+        realm.commitTransaction();
+        Intent i;
+        i = new Intent(this, MainActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
 }

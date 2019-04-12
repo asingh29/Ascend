@@ -3,8 +3,10 @@ package com.example.ascend;
 import java.io.Serializable;
 import java.util.Date;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Pitch extends RealmObject implements Serializable {
+    @PrimaryKey
     protected String name;
     protected int day;
     protected String plan;
