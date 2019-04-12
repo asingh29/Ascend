@@ -88,9 +88,7 @@ public class YourPeaks extends AppCompatActivity {
             Peak cur = p.get(i);
             curPeaks.add(cur);
         }
-        if (curPeaks.size() > 0) {
-            initRecyclerView();
-        }
+        initRecyclerView();
     }
 
     public void addPeak(View view) {
@@ -110,8 +108,8 @@ public class YourPeaks extends AppCompatActivity {
         String pitch1End = "10:00";
         String pitch2Start = "11:00";
         String pitch2End = "12:00";
-        Pitch pitch1 = new Pitch("4 mile run", 4, pitch1Start, pitch1End);
-        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", 4, pitch2Start, pitch2End);
+        Pitch pitch1 = new Pitch("4 mile run", 5, pitch1Start, pitch1End);
+        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", 5, pitch2Start, pitch2End);
         pitch1.plan = "Warmup";
         pitch2.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protien\n" + "1 serving rice\n";
         phase1.addPitch(pitch1);

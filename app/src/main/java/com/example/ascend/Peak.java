@@ -29,17 +29,6 @@ public class Peak extends RealmObject implements Serializable {
         this.end = e;
         phase = new RealmList<Phase>();
     }
-    public String getName() {
-        return this.name;
-    }
-    public String getDescription() {return this.description; }
-    public Date getStart() {
-        return this.start;
-    }
-    public Date getEnd() {
-        return end;
-    }
-    public RealmList<Phase> getPhase() { return this.phase; }
     public void addPhase(Phase p) {
         this.phase.add(p);
     }

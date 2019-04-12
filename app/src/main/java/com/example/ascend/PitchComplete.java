@@ -45,4 +45,10 @@ public class PitchComplete extends AppCompatActivity {
         i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
 }
