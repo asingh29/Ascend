@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/phase_layout">
 
-    <TextView
+    <Button
         android:id="@+id/phase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,8 +23,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.015" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

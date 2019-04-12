@@ -16,6 +16,7 @@ public class Phase extends RealmObject implements Serializable {
     private RealmList<Pitch> thursday;
     private RealmList<Pitch> friday;
     private RealmList<Pitch> saturday;
+    private RealmList<Pitch> all;
     protected String name;
     private Date start;
     private Date end;
@@ -32,6 +33,7 @@ public class Phase extends RealmObject implements Serializable {
         thursday = new RealmList<Pitch>();
         friday = new RealmList<Pitch>();
         saturday = new RealmList<Pitch>();
+        all = new RealmList<Pitch>();
     }
 
     public Phase(Date s, Date e) {
@@ -45,6 +47,8 @@ public class Phase extends RealmObject implements Serializable {
         thursday = new RealmList<Pitch>();
         friday = new RealmList<Pitch>();
         saturday = new RealmList<Pitch>();
+        all = new RealmList<Pitch>();
+
     }
 
     public RealmList<Pitch> getPitches(int day) {
@@ -56,31 +60,56 @@ public class Phase extends RealmObject implements Serializable {
             case 4: return thursday;
             case 5: return friday;
             case 6: return saturday;
-            default: return null;
+            default: return all;
         }
     }
     public void addPitch(Pitch p) {
         int day = p.getDay();
         switch(day) {
             case 0: sunday.add(p);
+                if(!all.contains(p)) {
+                    all.add(p);
+                }
                 break;
             case 1: monday.add(p);
+                if(!all.contains(p)) {
+                    all.add(p);
+                }
                 break;
             case 2: tuesday.add(p);
+                if(!all.contains(p)) {
+                    all.add(p);
+                }
                 break;
             case 3: wednesday.add(p);
+                if(!all.contains(p)) {
+                    all.add(p);
+                }
                 break;
             case 4: thursday.add(p);
+                if(!all.contains(p)) {
+                    all.add(p);
+                }
                 break;
             case 5: friday.add(p);
+                if(!all.contains(p)) {
+                    all.add(p);
+                }
                 break;
             case 6: saturday.add(p);
+                if(!all.contains(p)) {
+                    all.add(p);
+                }
                 break;
             default: break;
         }
     }
     public void setActive(boolean val) {
         active = val;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getName() {

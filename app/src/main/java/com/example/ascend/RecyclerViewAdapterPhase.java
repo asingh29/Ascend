@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -35,13 +36,14 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
-        Phase p = phases.get(i);
+        final Phase p = phases.get(i);
         viewHolder.phase.setText(p.getName());
-
+        viewHolder.details.setText(p.getDescription());
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), phasetasks.class);
+                i.putExtra("phasename", p.getName());
                 nContext.startActivity(i);
             }
         });
@@ -53,12 +55,14 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView phase;
+        Button phase;
+        Button details;
         ConstraintLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             phase = itemView.findViewById(R.id.phase);
+            details = itemView.findViewById(R.id.details);
             layout = itemView.findViewById(R.id.phase_layout);
         }
     }
