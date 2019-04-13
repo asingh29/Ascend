@@ -27,6 +27,8 @@ public class KIMRunMarathon extends AppCompatActivity {
                     startActivity(i);
                     return true;
                 case R.id.navigation_peaks:
+                    Intent yourPeaksIntent = new Intent(KIMRunMarathon.this, YourPeaks.class);
+                    startActivity(yourPeaksIntent);
                     return true;
                 case R.id.navigation_browse:
                     return true;
