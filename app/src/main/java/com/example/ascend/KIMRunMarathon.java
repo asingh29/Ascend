@@ -12,6 +12,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -68,4 +70,41 @@ public class KIMRunMarathon extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.navigation, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+
+            case R.id.navigation_home: {
+                Intent intent = new Intent(KIMRunMarathon.this, MainActivity.class);
+                startActivity(intent);
+                return true;
+            }
+
+            case R.id.navigation_peaks: {
+                Intent intent = new Intent(KIMRunMarathon.this, YourPeaks.class);
+                startActivity(intent);
+                return true;
+            }
+
+            case R.id.navigation_browse: {
+                return true;
+            }
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
