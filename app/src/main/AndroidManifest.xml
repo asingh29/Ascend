@@ -10,11 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".KIMRiseTogether"
+            android:label="@string/title_activity_kimrise_together"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".KIMYourPeaks"
+            android:label="@string/title_activity_kimyour_peaks"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".KIMRunMarathon"
+            android:label="@string/title_activity_run_marathon"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".YourPeaks"
-            android:label="@string/title_activity_your_peaks"></activity>
+            android:label="@string/title_activity_your_peaks" />
         <activity
             android:name=".phasetasks"
-            android:label="@string/title_activity_phasetasks"/>
+            android:label="@string/title_activity_phasetasks" />
         <activity
             android:name=".pitchDescription"
             android:label="pitchDescription" />
@@ -24,7 +36,7 @@
         <activity
             android:name=".PitchComplete"
             android:label="@string/title_activity_pitch_complete"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BrowseFirstPage"
             android:label="@string/title_activity_browse_first_page" />
