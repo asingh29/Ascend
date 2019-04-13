@@ -1,5 +1,6 @@
 package com.example.ascend;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -19,9 +20,13 @@ public class BrowseFirstPage extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
+                    Intent i = new Intent(BrowseFirstPage.this, MainActivity.class);
+                    startActivity(i);
                     return true;
                 case R.id.navigation_peaks:
                     mTextMessage.setText(R.string.title_dashboard);
+                    i = new Intent(BrowseFirstPage.this, YourPeaks.class);
+                    startActivity(i);
                     return true;
                 case R.id.navigation_browse:
                     mTextMessage.setText(R.string.title_notifications);
