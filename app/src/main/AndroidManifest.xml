@@ -14,18 +14,17 @@
             android:label="@string/title_activity_your_peaks"></activity>
         <activity
             android:name=".phasetasks"
-            android:label="@string/title_activity_phasetasks" />
+            android:label="@string/title_activity_phasetasks"/>
         <activity
             android:name=".pitchDescription"
             android:label="pitchDescription" />
         <activity
             android:name=".peak_phases"
-            android:label="@string/title_activity_peak_phases"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/title_activity_peak_phases" />
         <activity
             android:name=".PitchComplete"
             android:label="@string/title_activity_pitch_complete"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".BrowseFirstPage"
             android:label="@string/title_activity_browse_first_page" />

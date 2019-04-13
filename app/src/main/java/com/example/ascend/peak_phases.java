@@ -9,6 +9,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,15 +17,12 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 
 public class peak_phases extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
@@ -64,11 +62,11 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         setContentView(R.layout.activity_peak_phases);
         Intent i = getIntent();
         peakname = i.getStringExtra("peakname");
-
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_peaks);
+
         Button changeStart = findViewById(R.id.change_start);
 
         changeStart.setOnClickListener(new View.OnClickListener() {

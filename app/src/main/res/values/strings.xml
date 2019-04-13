@@ -7,6 +7,6 @@
     <string name="title_activity_browse_first_page">BrowseFirstPage</string>
     <string name="title_activity_pitch_complete">PitchComplete</string>
     <string name="title_activity_peak_phases">Phases</string>
-    <string name="title_activity_phasetasks">phasetasks</string>
+    <string name="title_activity_phasetasks">Pitches</string>
     <string name="title_activity_your_peaks">YourPeaks</string>
 </resources>
