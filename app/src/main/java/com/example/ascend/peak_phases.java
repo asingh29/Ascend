@@ -46,17 +46,12 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
                     Intent i = new Intent(peak_phases.this, MainActivity.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_peaks:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    i = new Intent(peak_phases.this, YourPeaks.class);
-                    startActivity(i);
                     return true;
                 case R.id.navigation_browse:
-                    mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
             return false;
