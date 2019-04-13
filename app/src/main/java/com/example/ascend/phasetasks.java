@@ -32,17 +32,12 @@ public class phasetasks extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
                     Intent i = new Intent(phasetasks.this, MainActivity.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_peaks:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    i = new Intent(phasetasks.this, YourPeaks.class);
-                    startActivity(i);
                     return true;
                 case R.id.navigation_browse:
-                    mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
             return false;
