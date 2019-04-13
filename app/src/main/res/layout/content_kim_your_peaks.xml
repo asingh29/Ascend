@@ -8,16 +8,16 @@
     tools:context=".KIMYourPeaks"
     tools:showIn="@layout/activity_kim_your_peaks">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="387dp"
-        android:layout_height="224dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="60dp"
+    <Button
+        android:id="@+id/marathonButton"
+        android:layout_width="327dp"
+        android:layout_height="179dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/kim_run_a_marathon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kim_run_a_marathon" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
