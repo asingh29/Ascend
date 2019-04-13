@@ -23,10 +23,8 @@ import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
 public class pitchDescription extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
-    private TimePicker timePicker1;
-    private TimePicker timePicker2;
-    TextView time;
     TextView name;
+    TextView plan;
     String format;
     String start1;
     String end1;
@@ -79,6 +77,10 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         pitch = realmPitch.get(0);
         EditText et = (EditText) findViewById(R.id.Notes);
         et.setText(pitch.plan);
+        name = findViewById(R.id.Name);
+        name.setText("Peak: " + peakname + "\n" + pitch.start + " - " + pitch.end);
+        plan = findViewById(R.id.textView2);
+        plan.setText("Plan");
         Button butt2 = (Button) findViewById(R.id.button2);
         butt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,18 +125,21 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         }
         if (fromstart == true) {
             start1 = "" + hourOfDay + ":" + minute + " " + format;
-            name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
+            //name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
             Realm realm = Realm.getDefaultInstance();
             realm.beginTransaction();
             pitch.start = start1;
             realm.commitTransaction();
+            name.setText("Peak: " + peakname + "\n" + pitch.start + " - " + pitch.end);
         } else if (fromstart == false) {
             end1 = "" + hourOfDay + ":" + minute + " " + format;
             Realm realm = Realm.getDefaultInstance();
             realm.beginTransaction();
             pitch.end = end1;
             realm.commitTransaction();
-            name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
+            //name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
+            name.setText("Peak: " + peakname + "\n" + pitch.start + " - " + pitch.end);
+
         }
     }
 
