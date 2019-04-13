@@ -21,6 +21,7 @@ import org.w3c.dom.Text;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -34,7 +35,9 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
     private String peakname;
     private TextView startDate;
     private TextView endDate;
+    private TextView Name;
     private boolean fromStart;
+    private Realm realm;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -64,7 +67,6 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_peak_phases);
-
         Intent i = getIntent();
         peakname = i.getStringExtra("peakname");
 
@@ -97,8 +99,11 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         TextView startDate = findViewById(R.id.startDate);
         TextView endDate = findViewById(R.id.endDate);
 
+        TextView Name = findViewById(R.id.peakName);
+        Name.setText(peakname);
+
         Realm.init(this);
-        Realm realm = Realm.getDefaultInstance();
+        realm = Realm.getDefaultInstance();
         curPhases = new ArrayList<Phase>();
         initCurPeaks();
     }
@@ -145,11 +150,21 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
             Log.d(TAG, "onDateSet: in here");
             startDate = findViewById(R.id.startDate);
             startDate.setText(currentDateString);
+            Date d = c.getTime();
+            Peak curPeak = realm.where(Peak.class).equalTo("name", peakname).findFirst();
+            realm.beginTransaction();
+            curPeak.start = d;
+            realm.commitTransaction();
         }
         else {
             Log.d(TAG, "onDateSet: in there");
             endDate = findViewById(R.id.endDate);
             endDate.setText(currentDateString);
+            Date d = c.getTime();
+            Peak curPeak = realm.where(Peak.class).equalTo("name", peakname).findFirst();
+            realm.beginTransaction();
+            curPeak.end = d;
+            realm.commitTransaction();
         }
 
     }
