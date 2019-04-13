@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -78,6 +79,8 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         Button butt = (Button) findViewById(R.id.button);
         RealmResults<Pitch> realmPitch = realm.where(Pitch.class).equalTo("name", pitchName).findAll();
         pitch = realmPitch.get(0);
+        EditText et = (EditText) findViewById(R.id.Notes);
+        et.setText(pitch.plan);
         Button butt2 = (Button) findViewById(R.id.button2);
         butt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +97,13 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
                 DialogFragment timepicker2 = new TimePickerFragment();
                 fromstart = false;
                 timepicker2.show(getSupportFragmentManager(), "time picker2");
+            }
+        });
+        Button butt3 = (Button) findViewById(R.id.button3);
+        butt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveChanges();
             }
         });
 
@@ -128,6 +138,15 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
             realm.commitTransaction();
             name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
         }
+    }
+
+    public void saveChanges() {
+        EditText edit = (EditText) findViewById(R.id.Notes);
+        String message = edit.getText().toString();
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        pitch.plan = message;
+        realm.commitTransaction();
     }
 
 
