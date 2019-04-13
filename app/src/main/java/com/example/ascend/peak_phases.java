@@ -50,6 +50,12 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
                 case R.id.navigation_peaks:
                     return true;
                 case R.id.navigation_browse:
+                    /**
+                     * Bumjin Kim (bkim63)
+                     * bkim63@jhu.edu
+                     */
+                    Intent intent = new Intent(peak_phases.this, KIMRiseTogether.class);
+                    startActivity(intent);
                     return true;
             }
             return false;
