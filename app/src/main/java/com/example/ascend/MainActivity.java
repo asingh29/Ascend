@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(i);
                     return true;
                 case R.id.navigation_browse:
+                    Intent intent = new Intent(MainActivity.this, KIMRiseTogether.class);
+                    startActivity(intent);
                     return true;
             }
             return false;
