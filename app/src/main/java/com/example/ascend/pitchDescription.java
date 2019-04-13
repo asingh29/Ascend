@@ -29,7 +29,9 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
     String format;
     String start1;
     String end1;
+    String pitchName;
     String peakname;
+    Pitch pitch;
     int hour;
     private boolean fromstart;
     int min;
@@ -45,9 +47,11 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    Intent i = new Intent(pitchDescription.this, MainActivity.class);
+                    startActivity(i);
                     return true;
                 case R.id.navigation_peaks:
-                    Intent i = new Intent(pitchDescription.this, YourPeaks.class);
+                    i = new Intent(pitchDescription.this, YourPeaks.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_browse:
@@ -64,15 +68,16 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         setContentView(R.layout.pitch_description);
         Intent i = getIntent();
         Realm.init(this);
-        RealmConfiguration config = new RealmConfiguration.Builder()
-                .deleteRealmIfMigrationNeeded()
-                .build();
-        Realm.setDefaultConfiguration(config);
+        Realm realm = Realm.getDefaultInstance();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setSelectedItemId(R.id.navigation_peaks);
         peakname = i.getStringExtra("peakname");
+        pitchName = i.getStringExtra("pitchName");
         Button butt = (Button) findViewById(R.id.button);
+        RealmResults<Pitch> realmPitch = realm.where(Pitch.class).equalTo("name", pitchName).findAll();
+        pitch = realmPitch.get(0);
         Button butt2 = (Button) findViewById(R.id.button2);
         butt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,8 +116,16 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         if (fromstart == true) {
             start1 = "" + hourOfDay + ":" + minute + " " + format;
             name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
+            Realm realm = Realm.getDefaultInstance();
+            realm.beginTransaction();
+            pitch.start = start1;
+            realm.commitTransaction();
         } else if (fromstart == false) {
             end1 = "" + hourOfDay + ":" + minute + " " + format;
+            Realm realm = Realm.getDefaultInstance();
+            realm.beginTransaction();
+            pitch.end = end1;
+            realm.commitTransaction();
             name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
         }
     }

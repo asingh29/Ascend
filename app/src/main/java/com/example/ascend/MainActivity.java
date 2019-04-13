@@ -106,12 +106,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        //initCurPitches();
+        initCurPitches();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        //initCurPitches();
+        initCurPitches();
     }
 }
