@@ -9,4 +9,7 @@
     <string name="title_activity_peak_phases">Phases</string>
     <string name="title_activity_phasetasks">Pitches</string>
     <string name="title_activity_your_peaks">YourPeaks</string>
+    <string name="title_activity_run_marathon">RunMarathon</string>
+    <string name="title_activity_kimyour_peaks">KIMYourPeaks</string>
+    <string name="title_activity_kimrise_together">KIMRiseTogether</string>
 </resources>
