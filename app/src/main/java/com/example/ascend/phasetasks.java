@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,6 +31,8 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
 
     private static final String TAG = "phase_tasks";
     private ArrayList<Pitch> curPitches;
+    private Button changeStart;
+    private Button changeEnd;
     private String phasename;
     private String peakname;
     private boolean fromStart;
@@ -80,7 +83,7 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
         name = findViewById(R.id.phaseName);
         name.setText(phasename);
 
-        Button changeStart = findViewById(R.id.change_start_phase);
+        changeStart = findViewById(R.id.change_start_phase);
 
         changeStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +94,7 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
             }
         });
 
-        Button changeEnd = findViewById(R.id.change_end_phase);
+        changeEnd = findViewById(R.id.change_end_phase);
 
         changeEnd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +107,12 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
 
         startDate = findViewById(R.id.startDate_phase);
         endDate = findViewById(R.id.endDate_phase);
+
+        Phase phase = realm.where(Phase.class).equalTo("name", phasename).findFirst();
+        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(phase.start);
+        startDate.setText(currentDateString);
+        currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(phase.end);
+        endDate.setText(currentDateString);
 
     }
 
@@ -144,23 +153,27 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
 
         if (fromStart) {
             Log.d(TAG, "onDateSet: in here");
-            startDate = findViewById(R.id.startDate);
+            startDate = findViewById(R.id.startDate_phase);
             startDate.setText(currentDateString);
             Date d = c.getTime();
             Phase curPhase = realm.where(Phase.class).equalTo("name", phasename).findFirst();
             realm.beginTransaction();
             curPhase.start = d;
             realm.commitTransaction();
+            Snackbar.make(changeStart, "Date changed!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
         }
         else {
             Log.d(TAG, "onDateSet: in there");
-            endDate = findViewById(R.id.endDate);
+            endDate = findViewById(R.id.endDate_phase);
             endDate.setText(currentDateString);
             Date d = c.getTime();
             Phase curPhase = realm.where(Phase.class).equalTo("name", phasename).findFirst();
             realm.beginTransaction();
             curPhase.end = d;
             realm.commitTransaction();
+            Snackbar.make(changeEnd, "Date changed!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
         }
 
     }

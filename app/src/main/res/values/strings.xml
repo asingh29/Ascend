@@ -9,7 +9,7 @@
     <string name="title_activity_peak_phases">Phases</string>
     <string name="title_activity_phasetasks">Pitches</string>
     <string name="title_activity_your_peaks">YourPeaks</string>
-    <string name="title_activity_run_marathon">Run a Marathon (Bumjin Kim bkim63)</string>
-    <string name="title_activity_kimyour_peaks">Your Peaks (Bumjin Kim bkim63)</string>
-    <string name="title_activity_kimrise_together">Rise Together (Bumjin Kim bkim63)</string>
+    <string name="title_activity_run_marathon">Run a Marathon</string>
+    <string name="title_activity_kimyour_peaks">Browse(Exercise)</string>
+    <string name="title_activity_kimrise_together">Rise Together</string>
 </resources>
