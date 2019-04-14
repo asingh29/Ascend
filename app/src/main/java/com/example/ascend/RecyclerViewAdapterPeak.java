@@ -37,8 +37,8 @@ public class RecyclerViewAdapterPeak extends  RecyclerView.Adapter<RecyclerViewA
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
         final Peak p = peaks.get(i);
-        viewHolder.name.setText(p.name);
-        viewHolder.time.setText(p.start.toString() + "" + p.end.toString());
+        viewHolder.name.setText(p.name + "\n" + p.start.toString() + "" + p.end.toString());
+        //viewHolder.time.setText(p.start.toString() + "" + p.end.toString());
         viewHolder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,13 +65,13 @@ public class RecyclerViewAdapterPeak extends  RecyclerView.Adapter<RecyclerViewA
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         Button name;
-        Button time;
+        //Button time;
         ConstraintLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
-            time = itemView.findViewById(R.id.time);
+            //time = itemView.findViewById(R.id.time);
             layout = itemView.findViewById(R.id.peaks_layout);
         }
     }

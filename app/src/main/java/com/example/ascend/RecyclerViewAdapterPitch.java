@@ -42,8 +42,8 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
         final Pitch p = pitches.get(i);
-        viewHolder.name.setText(p.getName());
-        viewHolder.time.setText(p.getStart() + "-" + p.getEnd());
+        viewHolder.name.setText(p.getName() + "\n" + p.getStart() + " - " + p.getEnd());
+        //viewHolder.time.setText(p.getStart() + " - " + p.getEnd());
         viewHolder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,13 +81,13 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         Button name;
-        Button time;
+        //Button time;
         ConstraintLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
-            time = itemView.findViewById(R.id.time);
+            //time = itemView.findViewById(R.id.time);
             layout = itemView.findViewById(R.id.pitch_layout);
         }
     }
