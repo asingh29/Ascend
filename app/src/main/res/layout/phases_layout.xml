@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.015" />
-
+<!--
     <Button
         android:id="@+id/details"
         android:layout_width="wrap_content"
@@ -33,5 +33,5 @@
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phase" />
+        app:layout_constraintTop_toBottomOf="@+id/phase" /> -->
 </android.support.constraint.ConstraintLayout>

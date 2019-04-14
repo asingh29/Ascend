@@ -39,8 +39,8 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
         final Phase p = phases.get(i);
-        viewHolder.phase.setText("Phase " + (i + 1));
-        viewHolder.details.setText(p.getDescription());
+        viewHolder.phase.setText("Phase " + (i + 1) + "\n" + p.getDescription());
+        //viewHolder.details.setText(p.getDescription());
 
         viewHolder.phase.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,13 +69,13 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         Button phase;
-        Button details;
+        //Button details;
         ConstraintLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             phase = itemView.findViewById(R.id.phase);
-            details = itemView.findViewById(R.id.details);
+            //details = itemView.findViewById(R.id.details);
             layout = itemView.findViewById(R.id.phase_layout);
         }
     }
