@@ -37,7 +37,7 @@ public class RecyclerViewAdapterPeak extends  RecyclerView.Adapter<RecyclerViewA
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
         final Peak p = peaks.get(i);
-        viewHolder.name.setText(p.name + "\n" + p.start.toString() + "" + p.end.toString());
+        viewHolder.name.setText(p.name + "\n" + "Start: " + p.start.toString() + "\n" + "End: " + p.end.toString());
         //viewHolder.time.setText(p.start.toString() + "" + p.end.toString());
         viewHolder.name.setOnClickListener(new View.OnClickListener() {
             @Override
