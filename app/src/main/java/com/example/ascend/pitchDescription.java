@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -31,6 +32,8 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
     String pitchName;
     String peakname;
     Pitch pitch;
+    Button butt;
+    Button butt2;
     int hour;
     private boolean fromstart;
     int min;
@@ -72,7 +75,7 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         navigation.setSelectedItemId(R.id.navigation_peaks);
         peakname = i.getStringExtra("peakname");
         pitchName = i.getStringExtra("pitchName");
-        Button butt = (Button) findViewById(R.id.button);
+        butt = (Button) findViewById(R.id.button);
         RealmResults<Pitch> realmPitch = realm.where(Pitch.class).equalTo("name", pitchName).findAll();
         pitch = realmPitch.get(0);
         EditText et = (EditText) findViewById(R.id.Notes);
@@ -81,7 +84,7 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         name.setText("Peak: " + peakname + "\n" + pitch.start + " - " + pitch.end);
         plan = findViewById(R.id.textView2);
         plan.setText("Plan");
-        Button butt2 = (Button) findViewById(R.id.button2);
+        butt2 = (Button) findViewById(R.id.button2);
         butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +106,8 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         butt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Snackbar.make(v, "Plan saved!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
                 saveChanges();
             }
         });
@@ -131,6 +136,8 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
             pitch.start = start1;
             realm.commitTransaction();
             name.setText("Peak: " + peakname + "\n" + pitch.start + " - " + pitch.end);
+            Snackbar.make(butt, "Time changed!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
         } else if (fromstart == false) {
             end1 = "" + hourOfDay + ":" + minute + " " + format;
             Realm realm = Realm.getDefaultInstance();
@@ -139,8 +146,11 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
             realm.commitTransaction();
             //name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
             name.setText("Peak: " + peakname + "\n" + pitch.start + " - " + pitch.end);
+            Snackbar.make(butt2, "Time changed!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
 
         }
+
     }
 
     public void saveChanges() {

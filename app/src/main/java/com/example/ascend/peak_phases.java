@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,6 +31,8 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
 
     private static final String TAG = "peak_phases";
     private ArrayList<Phase> curPhases;
+    private Button changeStart;
+    private Button changeEnd;
     private String peakname;
     private TextView startDate;
     private TextView endDate;
@@ -73,7 +76,7 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_peaks);
 
-        Button changeStart = findViewById(R.id.change_start);
+        changeStart = findViewById(R.id.change_start);
 
         changeStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +87,7 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
             }
         });
 
-        Button changeEnd = findViewById(R.id.change_end);
+        changeEnd = findViewById(R.id.change_end);
 
         changeEnd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,14 +98,20 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
             }
         });
 
+        Realm.init(this);
+        realm = Realm.getDefaultInstance();
+
         TextView startDate = findViewById(R.id.startDate);
         TextView endDate = findViewById(R.id.endDate);
 
         TextView Name = findViewById(R.id.peakName);
         Name.setText(peakname);
+        Peak peak = realm.where(Peak.class).equalTo("name", peakname).findFirst();
+        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(peak.start);
+        startDate.setText(currentDateString);
+        currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(peak.end);
+        endDate.setText(currentDateString);
 
-        Realm.init(this);
-        realm = Realm.getDefaultInstance();
         curPhases = new ArrayList<Phase>();
         initCurPeaks();
     }
@@ -154,6 +163,8 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
             realm.beginTransaction();
             curPeak.start = d;
             realm.commitTransaction();
+            Snackbar.make(changeStart, "Date changed!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
         }
         else {
             Log.d(TAG, "onDateSet: in there");
@@ -164,6 +175,8 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
             realm.beginTransaction();
             curPeak.end = d;
             realm.commitTransaction();
+            Snackbar.make(changeEnd, "Date changed!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
         }
 
     }
