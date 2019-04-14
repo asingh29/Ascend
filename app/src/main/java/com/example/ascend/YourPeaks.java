@@ -37,10 +37,6 @@ public class YourPeaks extends AppCompatActivity {
                 case R.id.navigation_peaks:
                     return true;
                 case R.id.navigation_browse:
-                    /**
-                     * Bumjin Kim (bkim63)
-                     * bkim63@jhu.edu
-                     */
                     Intent intent = new Intent(YourPeaks.this, KIMRiseTogether.class);
                     startActivity(intent);
                     return true;
@@ -67,13 +63,13 @@ public class YourPeaks extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        //initCurPeaks();
+        initCurPeaks();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        //initCurPeaks();
+        initCurPeaks();
     }
 
 
