@@ -1,0 +1,21 @@
+Meeting with Anuraag April 3:
+Setting plan for what to do in first sprint vs. to do later
+Assigning roles within the project among team members
+
+Team Meeting April 5:
+Creating necessary files including classes
+Organizing app layout
+Assigning tasks to complete over the weekend
+
+Meeting with Anuraag April 10
+Update on progress
+Updating the sprint 1 vs 2 task breakdown
+Mini demo
+
+Team Meeting April 12:
+App testing
+Working with Recyclerview
+Assigning weekend tasks
+
+Team Meeting April 14:
+Debugging and final submission
