@@ -119,7 +119,8 @@ public class YourPeaks extends AppCompatActivity {
         phase1.active = true;
         peak1.addPhase(phase1);
 
-        /*cal.set(2019,4,10);
+        /*
+        cal.set(2019,4,10);
         Date peak2StartDate = cal.getTime();
         cal.set(2019, 5, 10);
         Date peak2EndDate = cal.getTime();
