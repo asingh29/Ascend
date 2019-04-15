@@ -110,8 +110,8 @@ public class YourPeaks extends AppCompatActivity {
         String pitch1End = "10:00";
         String pitch2Start = "11:00";
         String pitch2End = "12:00";
-        Pitch pitch1 = new Pitch("4 mile run", 5, pitch1Start, pitch1End);
-        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", 5, pitch2Start, pitch2End);
+        Pitch pitch1 = new Pitch("4 mile run", 1, pitch1Start, pitch1End);
+        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", 1, pitch2Start, pitch2End);
         pitch1.plan = "Warmup";
         pitch2.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protien\n" + "1 serving rice\n";
         phase1.addPitch(pitch1);
@@ -119,7 +119,7 @@ public class YourPeaks extends AppCompatActivity {
         phase1.active = true;
         peak1.addPhase(phase1);
 
-        cal.set(2019,4,10);
+        /*cal.set(2019,4,10);
         Date peak2StartDate = cal.getTime();
         cal.set(2019, 5, 10);
         Date peak2EndDate = cal.getTime();
@@ -133,20 +133,20 @@ public class YourPeaks extends AppCompatActivity {
         String pitch3End = "10:00";
         String pitch4Start = "11:00";
         String pitch4End = "12:00";
-        Pitch pitch3 = new Pitch("4 mile run2", 5, pitch1Start, pitch1End);
-        Pitch pitch4 = new Pitch("Eat a Healthy Lunch2", 5, pitch2Start, pitch2End);
+        Pitch pitch3 = new Pitch("4 mile run2", 1, pitch1Start, pitch1End);
+        Pitch pitch4 = new Pitch("Eat a Healthy Lunch2", 1, pitch2Start, pitch2End);
         pitch3.plan = "Warmup";
         pitch4.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protien\n" + "1 serving rice\n";
         phase12.addPitch(pitch3);
         phase12.addPitch(pitch4);
         phase12.active = true;
-        peak2.addPhase(phase12);
+        peak2.addPhase(phase12);*/
 
         realm.beginTransaction();
         Peak marathon = realm.where(Peak.class).equalTo("name", "Run a Marathon").findFirst();
         if (marathon == null) realm.copyToRealm(peak1);
-        Peak marathon2 = realm.where(Peak.class).equalTo("name", "Run a Marathon2").findFirst();
-        if (marathon2 == null) realm.copyToRealm(peak2);
+        /*Peak marathon2 = realm.where(Peak.class).equalTo("name", "Run a Marathon2").findFirst();
+        if (marathon2 == null) realm.copyToRealm(peak2);*/
         realm.commitTransaction();
         initCurPeaks();
     }
