@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "651696122549",
+    "firebase_url": "https://ascend-78899.firebaseio.com",
+    "project_id": "ascend-78899",
+    "storage_bucket": "ascend-78899.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651696122549:android:e3170836801e3545",
+        "android_client_info": {
+          "package_name": "com.example.ascend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651696122549-d1ek561nbji4lo7mb2nk7dhsi8ul2mo1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ascend",
+            "certificate_hash": "e68c60941d2189492aed3c9c2f4c4b2863705fe5"
+          }
+        },
+        {
+          "client_id": "651696122549-f5auhqu52jth1il88b0r9sipsgevbs2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW3AQbwJwPAWd_PlFr3HRPFaVl0vxtFyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651696122549-f5auhqu52jth1il88b0r9sipsgevbs2l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
