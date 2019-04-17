@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".createPeak"
+            android:label="@string/title_activity_create_peak"></activity>
+        <activity
             android:name=".KIMRiseTogether"
             android:label="@string/title_activity_kimrise_together"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".KIMYourPeaks"
             android:label="@string/title_activity_kimyour_peaks"
