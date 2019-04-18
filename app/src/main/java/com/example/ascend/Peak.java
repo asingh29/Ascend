@@ -37,4 +37,5 @@ public class Peak extends RealmObject implements Serializable {
     public void addPhase(Phase p) {
         this.phase.add(p);
     }
+    public void addImage(Image p) { this.img = p; }
 }
