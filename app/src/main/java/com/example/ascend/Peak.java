@@ -1,5 +1,7 @@
 package com.example.ascend;
 
+import android.media.Image;
+
 import java.io.Serializable;
 import java.nio.file.attribute.DosFileAttributes;
 import java.time.LocalDateTime;
@@ -18,6 +20,7 @@ public class Peak extends RealmObject implements Serializable {
     protected RealmList<Phase> phase;
     protected Date start;
     protected Date end;
+    protected Image img;
 
     public Peak() {
         super();
