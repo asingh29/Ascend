@@ -20,7 +20,7 @@ public class Peak extends RealmObject implements Serializable {
     protected RealmList<Phase> phase;
     protected Date start;
     protected Date end;
-    protected Image img;
+    //protected Image img;
 
     public Peak() {
         super();
@@ -37,5 +37,5 @@ public class Peak extends RealmObject implements Serializable {
     public void addPhase(Phase p) {
         this.phase.add(p);
     }
-    public void addImage(Image p) { this.img = p; }
+    //public void addImage(Image p) { this.img = p; }
 }

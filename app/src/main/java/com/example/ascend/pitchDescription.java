@@ -1,7 +1,6 @@
 package com.example.ascend;
 
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,10 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import java.util.ArrayList;
-
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
 public class pitchDescription extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
@@ -49,7 +45,7 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Intent i = new Intent(pitchDescription.this, MainActivity.class);
+                    Intent i = new Intent(pitchDescription.this, HomePage.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_peaks:

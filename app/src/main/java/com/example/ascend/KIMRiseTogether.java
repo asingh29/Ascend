@@ -23,7 +23,7 @@ public class KIMRiseTogether extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Intent i = new Intent(KIMRiseTogether.this, MainActivity.class);
+                    Intent i = new Intent(KIMRiseTogether.this, HomePage.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_peaks:

@@ -10,7 +10,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,7 +46,7 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Intent i = new Intent(peak_phases.this, MainActivity.class);
+                    Intent i = new Intent(peak_phases.this, HomePage.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_peaks:

@@ -25,7 +25,7 @@ public class KIMRunMarathon extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Intent i = new Intent(KIMRunMarathon.this, MainActivity.class);
+                    Intent i = new Intent(KIMRunMarathon.this, HomePage.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_peaks:
@@ -88,7 +88,7 @@ public class KIMRunMarathon extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.navigation_home: {
-                Intent intent = new Intent(KIMRunMarathon.this, MainActivity.class);
+                Intent intent = new Intent(KIMRunMarathon.this, HomePage.class);
                 startActivity(intent);
                 return true;
             }

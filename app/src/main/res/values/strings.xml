@@ -13,4 +13,5 @@
     <string name="title_activity_kimyour_peaks">Browse(Exercise)</string>
     <string name="title_activity_kimrise_together">Rise Together</string>
     <string name="title_activity_create_peak">createPeak</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

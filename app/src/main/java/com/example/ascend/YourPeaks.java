@@ -31,7 +31,7 @@ public class YourPeaks extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Intent i = new Intent(YourPeaks.this, MainActivity.class);
+                    Intent i = new Intent(YourPeaks.this, HomePage.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_peaks:
