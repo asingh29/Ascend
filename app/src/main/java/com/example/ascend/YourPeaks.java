@@ -143,6 +143,10 @@ public class YourPeaks extends AppCompatActivity {
         phase12.active = true;
         peak2.addPhase(phase12);*/
 
+        Intent i;
+        i = new Intent(this, createPeak.class);
+        startActivity(i);
+
         realm.beginTransaction();
         Peak marathon = realm.where(Peak.class).equalTo("name", "Run a Marathon").findFirst();
         if (marathon == null) realm.copyToRealm(peak1);

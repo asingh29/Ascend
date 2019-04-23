@@ -13,15 +13,15 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapterAddPeak extends  RecyclerView.Adapter<RecyclerViewAdapterPitch.ViewHolder> {
+public class RecyclerViewAdapterAddPeak extends  RecyclerView.Adapter<RecyclerViewAdapterAddPeak.ViewHolder> {
 
-    public RecyclerViewAdapterAddPeak(ArrayList<Pitch> p, Context c, String phase, String peak) {
+    public RecyclerViewAdapterAddPeak(ArrayList<Phase> p, Context c, String phase, String peak) {
 
     }
 
     @NonNull
     @Override
-    public RecyclerViewAdapterPitch.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecyclerViewAdapterAddPeak.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.phasetasks_layout, viewGroup, false);
         //RecyclerViewAdapterPitch.ViewHolder holder = new RecyclerViewAdapterPitch.ViewHolder(view);
         //return holder;
@@ -29,18 +29,9 @@ public class RecyclerViewAdapterAddPeak extends  RecyclerView.Adapter<RecyclerVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapterPitch.ViewHolder viewHolder, int i) {
-        /*viewHolder.name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-            }
-        });
-
-            }
-        });*/
     }
-
 
     @Override
     public int getItemCount() {
