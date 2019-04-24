@@ -15,17 +15,24 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterAddPeak extends  RecyclerView.Adapter<RecyclerViewAdapterAddPeak.ViewHolder> {
 
-    public RecyclerViewAdapterAddPeak(ArrayList<Phase> p, Context c, String phase, String peak) {
+    private ArrayList<Pitch> pitches;
+    private String phase;
+    private String peak;
+    private Context nContext;
 
+    public RecyclerViewAdapterAddPeak(ArrayList<Pitch> p, Context c, String ph, String goal) {
+        pitches = p;
+        nContext = c;
+        this.phase = ph;
+        this.peak = goal;
     }
 
     @NonNull
     @Override
     public RecyclerViewAdapterAddPeak.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.phasetasks_layout, viewGroup, false);
-        //RecyclerViewAdapterPitch.ViewHolder holder = new RecyclerViewAdapterPitch.ViewHolder(view);
-        //return holder;
-        return null;
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_pitch_to_phase, viewGroup, false);
+        RecyclerViewAdapterAddPeak.ViewHolder holder = new RecyclerViewAdapterAddPeak.ViewHolder(view);
+        return holder;
     }
 
     @Override
@@ -35,8 +42,7 @@ public class RecyclerViewAdapterAddPeak extends  RecyclerView.Adapter<RecyclerVi
 
     @Override
     public int getItemCount() {
-
-        return 0;
+        return pitches.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
