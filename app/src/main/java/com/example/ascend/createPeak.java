@@ -29,9 +29,14 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
 
     private Button s;
     private Button e;
+    String n;
+    String d;
     private boolean fromStart;
     private TextView startDate;
     private TextView endDate;
+    private Date peak_start_date;
+    private Date peak_end_date;
+    private Button add_phase;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -80,25 +85,12 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String n = (String) name.getText().toString();
-                String d = (String) desc.getText().toString();
+                n = (String) name.getText().toString();
+                d = (String) desc.getText().toString();
 
+                //check if peak_start_date and peak_end_date exist-if not display toast
 
-                Calendar cal = new GregorianCalendar();
-                cal.set(2019, 4, 10);
-                Date peakStartDate = cal.getTime();
-                cal.set(2019, 5, 10);
-                Date peakEndDate = cal.getTime();
-
-                /*
-
-                Calendar c = Calendar.getInstance();
-                c.set(Calendar.YEAR, year);
-                c.set(Calendar.MONTH, month);
-                c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                 */
-
-                Peak p = new Peak(n, d, peakStartDate, peakEndDate); //fix the date here
+                Peak p = new Peak(n, d, peak_start_date, peak_end_date); //fix the date here
                 Realm realm = Realm.getDefaultInstance();
                 realm.beginTransaction();
                 Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
@@ -106,8 +98,6 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                     realm.copyToRealm(p);
                 }
                 realm.commitTransaction();
-
-                finish();
             }
         });
 
@@ -130,13 +120,17 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                 DialogFragment datePicker = new DatePickerFragment();
                 datePicker.show(getSupportFragmentManager(), "date picker");
                 fromStart = false;
+            }
+        });
 
+        add_phase = findViewById(R.id.add_phase_button);
 
-
-
-
-
-
+        add_phase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(createPeak.this, CreatePeak_AddPhases.class);
+                i.putExtra("peakname", n);
+                startActivity(i);
             }
         });
 
@@ -144,7 +138,6 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
             @Override
             public void onClick(View view) {
                 finish();
-
             }
         });
     }
@@ -163,18 +156,13 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
             //Log.d(TAG, "onDateSet: in here");
             startDate = findViewById(R.id.starter);
             startDate.setText(currentDateString);
-            Date d = c.getTime();
-
-
+            peak_start_date = c.getTime();
         }
         else {
             //Log.d(TAG, "onDateSet: in there");
             endDate = findViewById(R.id.ender);
             endDate.setText(currentDateString);
-            Date d = c.getTime();
-
+            peak_end_date = c.getTime();
         }
-
     }
-
 }

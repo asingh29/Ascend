@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Create_Peak_Add_Pitch"
+            android:label="@string/title_activity_create__peak__add__pitch"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".CreatePeak_AddPhases"
             android:label="@string/title_activity_create_peak__add_phases"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
@@ -61,7 +65,7 @@
             android:label="@string/title_activity_browse_first_page" />
         <activity
             android:name=".HomePage"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

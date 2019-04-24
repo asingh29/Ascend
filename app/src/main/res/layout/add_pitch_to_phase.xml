@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:id="@+id/add_pitch_to_phase">
 
     <CheckBox
         android:id="@+id/wednesday"
@@ -102,17 +103,17 @@
         app:layout_constraintTop_toBottomOf="@+id/pitch_name" />
 
     <TextView
-        android:id="@+id/start_date"
+        android:id="@+id/start_time"
         android:layout_width="wrap_content"
         android:layout_height="15dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/change_start"
+        app:layout_constraintStart_toEndOf="@+id/change_start_time"
         app:layout_constraintTop_toBottomOf="@+id/pitch_description" />
 
     <Button
-        android:id="@+id/change_start"
+        android:id="@+id/change_start_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -123,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pitch_description" />
 
     <Button
-        android:id="@+id/change_end"
+        android:id="@+id/change_end_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -131,15 +132,35 @@
         android:text="Change End Time:"
         android:textSize="8sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_start" />
+        app:layout_constraintTop_toBottomOf="@+id/change_start_time" />
 
     <TextView
-        android:id="@+id/end_date"
+        android:id="@+id/end_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/change_end"
-        app:layout_constraintTop_toBottomOf="@+id/change_start" />
+        app:layout_constraintStart_toEndOf="@+id/change_end_time"
+        app:layout_constraintTop_toBottomOf="@+id/change_start_time" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Save Pitch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Done Adding Pitches"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -38,7 +38,7 @@
         android:layout_height="108dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/mountain"
         app:srcCompat="@drawable/todayspitches" />
 
     <android.support.v7.widget.RecyclerView
