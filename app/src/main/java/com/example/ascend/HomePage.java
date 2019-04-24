@@ -25,6 +25,9 @@ public class HomePage extends AppCompatActivity {
 
     private static final String TAG = "HomePage";
     private ArrayList<Pitch> curPitches;
+    private double total;
+    private double complete;
+    private double percent;
 
     SharedPreferences sharedpreferences;
 
@@ -71,7 +74,22 @@ public class HomePage extends AppCompatActivity {
         curPitches.add(pitch1);
         initRecyclerView();*/
         initCurPitches();
+
+        getPercent();
+
     }
+
+    private void getPercent() {
+        total = curPitches.size();
+        for (int i = 0; i < total; i++) {
+            if (curPitches.get(i).complete) {
+                complete++;
+            }
+        }
+        percent = complete / total;
+
+    }
+
 
     public void onCLick(View view) {
         Intent i = new Intent(getApplicationContext(), YourPeaks.class);
