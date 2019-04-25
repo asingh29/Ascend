@@ -15,4 +15,5 @@
     <string name="title_activity_create_peak">createPeak</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_create_peak__add_phases">CreatePeak_AddPhases</string>
+    <string name="title_activity_create__peak__add__pitch">Create_Peak_Add_Pitch</string>
 </resources>

@@ -10,8 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class RecyclerViewAdapterAddPeak extends  RecyclerView.Adapter<RecyclerViewAdapterAddPeak.ViewHolder> {
 
@@ -37,6 +41,10 @@ public class RecyclerViewAdapterAddPeak extends  RecyclerView.Adapter<RecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        Log.d(TAG, "onBindViewHolder: called");
+        final Pitch p = pitches.get(i);
+        viewHolder.name.setText(p.name);
+        viewHolder.description.setText(p.plan);
 
     }
 
@@ -46,15 +54,25 @@ public class RecyclerViewAdapterAddPeak extends  RecyclerView.Adapter<RecyclerVi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        Button name;
-        //Button time;
+        EditText name;
+        EditText description;
         ConstraintLayout layout;
+        Button change_start;
+        Button change_end;
+        TextView start_time;
+        TextView end_time;
+
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
-            //time = itemView.findViewById(R.id.time);
-            layout = itemView.findViewById(R.id.pitch_layout);
+            description = itemView.findViewById(R.id.time);
+            layout = itemView.findViewById(R.id.add_pitch_to_phase);
+            change_start = itemView.findViewById(R.id.change_start_time);
+            change_end = itemView.findViewById(R.id.change_end_time);
+            start_time = itemView.findViewById(R.id.start_time);
+            end_time = itemView.findViewById(R.id.end_time);
         }
     }
 

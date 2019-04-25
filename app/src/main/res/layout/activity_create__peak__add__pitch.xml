@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreatePeak_AddPhases">
+    tools:context=".Create_Peak_Add_Pitch">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -20,6 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_create_peak__add_phases" />
+    <include layout="@layout/add_pitch_to_phase" />
 
 </android.support.design.widget.CoordinatorLayout>
