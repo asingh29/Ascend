@@ -1,6 +1,7 @@
 package com.example.ascend;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -38,10 +39,26 @@ public class RecyclerViewAdapterBrowse extends  RecyclerView.Adapter<RecyclerVie
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapterBrowse.ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: called");
-        Peak p = peaks.get(i);
+        final Peak p = peaks.get(i);
         String startString = DateFormat.getDateInstance(DateFormat.FULL).format(p.start);
         String endString = DateFormat.getDateInstance(DateFormat.FULL).format(p.end);
         viewHolder.name.setText(p.name + "\n" + "Start: " + startString + "\n" + "End: " + endString);
+        viewHolder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent j = new Intent(v.getContext(), browseDescription.class);
+                j.putExtra("peakname", p.name);
+                nContext.startActivity(j);
+            }
+        });
+        viewHolder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), browseDescription.class);
+                i.putExtra("peakname", p.name);
+                nContext.startActivity(i);
+            }
+        });
     }
 
     @Override

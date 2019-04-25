@@ -10,18 +10,17 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-//import com.example.ascend.RecyclerViewAdapterBrowse;
+
 import java.util.ArrayList;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class BrowseFirstPage extends AppCompatActivity {
+public class browseDescription extends AppCompatActivity {
 
-    private TextView mTextMessage;
-    private ArrayList<Peak> curPeaks;
-    private static final String TAG = "BrowsePeaks";
+    private static final String TAG = "browseDescription";
+    private ArrayList<Phase> curPhases;
+    private String peakname;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -30,17 +29,14 @@ public class BrowseFirstPage extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    Intent i = new Intent(BrowseFirstPage.this, HomePage.class);
+                    Intent i = new Intent(browseDescription.this, HomePage.class);
                     startActivity(i);
                     return true;
                 case R.id.navigation_peaks:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    i = new Intent(BrowseFirstPage.this, YourPeaks.class);
-                    startActivity(i);
+                    Intent intent = new Intent(browseDescription.this, YourPeaks.class);
+                    startActivity(intent);
                     return true;
                 case R.id.navigation_browse:
-                    mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
             return false;
@@ -50,50 +46,54 @@ public class BrowseFirstPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_browse_first_page);
+        Intent i = getIntent();
+        peakname = i.getStringExtra("peakname");
+        setContentView(R.layout.browse_description);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.navigation_browse);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         Realm.init(this);
         Realm realm = Realm.getDefaultInstance();
-        curPeaks = new ArrayList<Peak>();
-        initCurPeaks();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        initCurPeaks();
+        curPhases = new ArrayList<Phase>();
+        initCurPitches();
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        initCurPeaks();
+        initCurPitches();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurPitches();
     }
 
     private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: called");
-        RecyclerView recycler = findViewById(R.id.BrowsePeaks);
-        RecyclerViewAdapterBrowse adapter = new RecyclerViewAdapterBrowse(curPeaks, this);
+        RecyclerView recycler = findViewById(R.id.listOfPhases);
+        RecyclerViewAdapterBrowseDescription adapter = new RecyclerViewAdapterBrowseDescription(curPhases, this);
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void initCurPeaks() {
+    private void initCurPitches() {
         Log.d(TAG, "initCurPitches: called");
-        curPeaks.clear();
+        curPhases.clear();
         Realm realm = Realm.getDefaultInstance();
-        RealmResults<Peak> p = realm.where(Peak.class).findAll();
-        for (int i = 0; i < p.size(); i++) {
-            Peak cur = p.get(i);
-            if(cur.browse == true) {
-                curPeaks.add(cur);
-            }
+        Peak peaky = realm.where(Peak.class).equalTo("name", peakname).findFirst();
+        //RealmResults<Pitch> p = realm.where(Peak.class).findAll();
+        for (int i = 0; i < peaky.phase.size(); i++) {
+            Phase cur = peaky.phase.get(i);
+            curPhases.add(cur);
         }
         initRecyclerView();
     }
 
+    public void onClick(View v) {
+
+    }
 
 }
