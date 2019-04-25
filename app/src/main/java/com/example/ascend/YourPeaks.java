@@ -37,7 +37,7 @@ public class YourPeaks extends AppCompatActivity {
                 case R.id.navigation_peaks:
                     return true;
                 case R.id.navigation_browse:
-                    Intent intent = new Intent(YourPeaks.this, KIMRiseTogether.class);
+                    Intent intent = new Intent(YourPeaks.this, BrowseFirstPage.class);
                     startActivity(intent);
                     return true;
             }
@@ -100,7 +100,7 @@ public class YourPeaks extends AppCompatActivity {
         Date peakStartDate = cal.getTime();
         cal.set(2019, 5, 10);
         Date peakEndDate = cal.getTime();
-        Peak peak1 = new Peak("Run a Marathon", "run fast, run hard", peakStartDate, peakEndDate);
+        Peak peak1 = new Peak("Run a Marathon", "run fast, run hard", peakStartDate, peakEndDate, true);
         cal.set(2019, 4, 10);
         Date phase1Start = cal.getTime();
         cal.set(2019, 4, 30);
@@ -113,18 +113,22 @@ public class YourPeaks extends AppCompatActivity {
         Pitch pitch1 = new Pitch("4 mile run", 1, pitch1Start, pitch1End);
         Pitch pitch2 = new Pitch("Eat a Healthy Lunch", 1, pitch2Start, pitch2End);
         pitch1.plan = "Warmup";
-        pitch2.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protien\n" + "1 serving rice\n";
+        pitch2.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protein\n" + "1 serving rice\n";
         phase1.addPitch(pitch1);
         phase1.addPitch(pitch2);
         phase1.active = true;
         peak1.addPhase(phase1);
 
+        Peak peak3 = new Peak("Learn how to swim", "speed through the waves", peakStartDate, peakEndDate, true);
+        Phase phase31 = new Phase(phase1Start, phase1End, "Peak3Phase1", "The basics");
+        Pitch pitch31 = new Pitch("dip in the pool", 1, pitch1Start, pitch1End);
+        Pitch pitch32 = new Pitch("Doggy Paddle", 1, pitch2Start, pitch2End);
         /*
         cal.set(2019,4,10);
         Date peak2StartDate = cal.getTime();
         cal.set(2019, 5, 10);
         Date peak2EndDate = cal.getTime();
-        Peak peak2 = new Peak("Run a Marathon2", "run fast, run hard", peakStartDate, peakEndDate);
+        Peak peak2 = new Peak("Run a Marathon2", "run fast, run hard", peakStartDate, peakEndDate, true);
         cal.set(2019, 4, 10);
         Date phase2Start = cal.getTime();
         cal.set(2019, 4, 30);

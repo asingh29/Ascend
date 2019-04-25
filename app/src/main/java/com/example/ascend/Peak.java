@@ -20,6 +20,7 @@ public class Peak extends RealmObject implements Serializable {
     protected RealmList<Phase> phase;
     protected Date start;
     protected Date end;
+    protected Boolean browse;
     //protected Image img;
 
     public Peak() {
@@ -27,11 +28,12 @@ public class Peak extends RealmObject implements Serializable {
         phase = new RealmList<Phase>();
     }
 
-    public Peak(String goal, String description, Date s, Date e) {
+    public Peak(String goal, String description, Date s, Date e, Boolean b) {
         this.name = goal;
         this.description = description;
         this.start = s;
         this.end = e;
+        this.browse = b;
         phase = new RealmList<Phase>();
     }
     public void addPhase(Phase p) {
