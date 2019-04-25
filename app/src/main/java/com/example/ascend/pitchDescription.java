@@ -59,7 +59,6 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,7 +147,6 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
                     .setAction("Action", null).show();
 
         }
-
     }
 
     public void saveChanges() {
@@ -159,8 +157,4 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         pitch.plan = message;
         realm.commitTransaction();
     }
-
-
-
-
 }

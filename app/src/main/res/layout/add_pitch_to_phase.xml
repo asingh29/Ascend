@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/add_pitch_to_phase">
+    android:id="@+id/add_pitch_to_phase"
+    tools:showIn="@layout/activity_create__peak__add__pitch">
 
     <CheckBox
         android:id="@+id/wednesday"
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Wednesday"
+        android:text="@string/wednesday"
         app:layout_constraintStart_toEndOf="@+id/pitch_name"
         app:layout_constraintTop_toBottomOf="@+id/tuesday" />
 
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Thursday"
+        android:text="@string/thursday"
         app:layout_constraintStart_toEndOf="@+id/pitch_name"
         app:layout_constraintTop_toBottomOf="@+id/wednesday" />
 
@@ -33,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Friday"
+        android:text="@string/friday"
         app:layout_constraintStart_toEndOf="@+id/pitch_name"
         app:layout_constraintTop_toBottomOf="@+id/thursday" />
 
@@ -43,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Saturday"
+        android:text="@string/saturday"
         app:layout_constraintStart_toEndOf="@+id/pitch_name"
         app:layout_constraintTop_toBottomOf="@+id/friday" />
 
@@ -53,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Monday"
+        android:text="@string/monday"
         app:layout_constraintStart_toEndOf="@+id/pitch_name"
         app:layout_constraintTop_toBottomOf="@+id/sunday" />
 
@@ -63,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Tuesday"
+        android:text="@string/tuesday"
         app:layout_constraintStart_toEndOf="@+id/pitch_name"
         app:layout_constraintTop_toBottomOf="@+id/monday" />
 
@@ -98,7 +99,6 @@
         android:ems="10"
         android:hint="Description"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pitch_name" />
 
@@ -108,7 +108,7 @@
         android:layout_height="15dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/textview"
         app:layout_constraintStart_toEndOf="@+id/_start_time_pitch"
         app:layout_constraintTop_toBottomOf="@+id/pitch_description" />
 
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Change Start Time:"
+        android:text="@string/change_start_time"
         android:textSize="8sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pitch_description" />

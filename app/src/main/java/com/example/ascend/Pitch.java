@@ -25,7 +25,7 @@ public class Pitch extends RealmObject implements Serializable {
         complete = false;
     }
 
-    public Pitch(String n, String s, String e, boolean su, boolean m, boolean t, boolean w, boolean th, boolean f, boolean sa) {
+    public Pitch(String n, String p, String s, String e, boolean su, boolean m, boolean t, boolean w, boolean th, boolean f, boolean sa) {
         sunday = su;
         monday = m;
         tuesday = t;
@@ -33,6 +33,7 @@ public class Pitch extends RealmObject implements Serializable {
         thursday = th;
         friday = f;
         saturday = sa;
+        plan = p;
         this.start = s;
         this.end = e;
         this.name = n;

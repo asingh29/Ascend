@@ -36,19 +36,27 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Realm realm = Realm.getDefaultInstance();
         setContentView(R.layout.activity_create_peak__add_phases);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent i = getIntent();
-        final TextView name = (TextView) findViewById(R.id.add_phase_name);
-        final TextView desc = (TextView) findViewById(R.id.add_phase_description);
-        Button save = (Button) findViewById(R.id.save_phase);
-        Button cancel = (Button) findViewById(R.id.discard_phase);
+        final TextView name = findViewById(R.id.add_phase_name);
+        final TextView desc = findViewById(R.id.add_phase_description);
+        Button save = findViewById(R.id.save_phase);
+        Button cancel = findViewById(R.id.discard_phase);
         startDate = findViewById(R.id.add_phase_start_date);
         endDate = findViewById(R.id.add_phase_end_date);
 
         peak_name = i.getStringExtra("peakname");
-
+        if (i.hasExtra("fromaddpitch")) {
+            phase_name = i.getStringExtra("phase_name");
+            Phase cur = realm.where(Phase.class).equalTo("name", phase_name).findFirst();
+            name.setText(phase_name);
+            desc.setText(cur.description);
+            startDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(cur.start));
+            endDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(cur.end));
+        }
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +77,6 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                 i.putExtra("peakname", peak_name);
                 i.putExtra("phasename", phase_name);
                 startActivity(i);
-                finish();
             }
         });
 

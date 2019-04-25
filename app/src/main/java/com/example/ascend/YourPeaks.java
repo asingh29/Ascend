@@ -113,8 +113,8 @@ public class YourPeaks extends AppCompatActivity {
         String pitch1End = "10:00";
         String pitch2Start = "11:00";
         String pitch2End = "12:00";
-        Pitch pitch1 = new Pitch("4 mile run", pitch1Start, pitch1End, true, true, true, true, true, true, true);
-        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", pitch2Start, pitch2End, true, true, true, true, true, true, true);
+        Pitch pitch1 = new Pitch("4 mile run", "Warmup", pitch1Start, pitch1End, true, true, true, true, true, true, true);
+        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", "2 fruits and veggies",pitch2Start, pitch2End, true, true, true, true, true, true, true);
         pitch1.plan = "Warmup";
         pitch2.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protein\n" + "1 serving rice\n";
         phase1.addPitch(pitch1);
@@ -124,8 +124,8 @@ public class YourPeaks extends AppCompatActivity {
 
         Peak peak3 = new Peak("Learn how to swim", "speed through the waves", peakStartDate, peakEndDate, true);
         Phase phase31 = new Phase(phase1Start, phase1End, "Peak3Phase1", "The basics");
-        Pitch pitch31 = new Pitch("dip in the pool", pitch1Start, pitch1End, true, true, true, true, true, true, true);
-        Pitch pitch32 = new Pitch("Doggy Paddle", pitch2Start, pitch2End, true, true, true, true, true, true, true);
+        Pitch pitch31 = new Pitch("dip in the pool", "get toes wet", pitch1Start, pitch1End, true, true, true, true, true, true, true);
+        Pitch pitch32 = new Pitch("Doggy Paddle", "doggystyle", pitch2Start, pitch2End, true, true, true, true, true, true, true);
         /*
         cal.set(2019,4,10);
         Date peak2StartDate = cal.getTime();

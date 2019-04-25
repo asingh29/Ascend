@@ -16,4 +16,12 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_create_peak__add_phases">CreatePeak_AddPhases</string>
     <string name="title_activity_create__peak__add__pitch">Create_Peak_Add_Pitch</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="textview">TextView</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="change_start_time">Change Start Time:</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
 </resources>

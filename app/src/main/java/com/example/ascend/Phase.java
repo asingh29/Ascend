@@ -52,8 +52,6 @@ public class Phase extends RealmObject implements Serializable {
         friday = new RealmList<Pitch>();
         saturday = new RealmList<Pitch>();
         all = new RealmList<Pitch>();
-
-
     }
 
     public RealmList<Pitch> getPitches(int day) {
