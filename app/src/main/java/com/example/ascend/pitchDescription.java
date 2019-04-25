@@ -51,7 +51,7 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
                 case R.id.navigation_peaks:
                     return true;
                 case R.id.navigation_browse:
-                    Intent intent = new Intent(pitchDescription.this, KIMRiseTogether.class);
+                    Intent intent = new Intent(pitchDescription.this, BrowseFirstPage.class);
                     startActivity(intent);
                     return true;
             }
