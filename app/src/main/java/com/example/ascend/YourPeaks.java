@@ -12,6 +12,7 @@ import android.view.View;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -95,6 +96,8 @@ public class YourPeaks extends AppCompatActivity {
 
     public void addPeak(View view) {
         Realm realm = Realm.getDefaultInstance();
+        boolean[] days = new boolean[7];
+        Arrays.fill(days, true);
         Calendar cal = new GregorianCalendar();
         cal.set(2019,4,10);
         Date peakStartDate = cal.getTime();
@@ -110,8 +113,8 @@ public class YourPeaks extends AppCompatActivity {
         String pitch1End = "10:00";
         String pitch2Start = "11:00";
         String pitch2End = "12:00";
-        Pitch pitch1 = new Pitch("4 mile run", 1, pitch1Start, pitch1End);
-        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", 1, pitch2Start, pitch2End);
+        Pitch pitch1 = new Pitch("4 mile run", pitch1Start, pitch1End, true, true, true, true, true, true, true);
+        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", pitch2Start, pitch2End, true, true, true, true, true, true, true);
         pitch1.plan = "Warmup";
         pitch2.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protien\n" + "1 serving rice\n";
         phase1.addPitch(pitch1);

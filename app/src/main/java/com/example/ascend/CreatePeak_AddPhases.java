@@ -94,7 +94,12 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
             }
         });
 
-
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {

@@ -69,8 +69,6 @@ public class RecyclerViewAdapterAddPeak extends  RecyclerView.Adapter<RecyclerVi
             name = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.time);
             layout = itemView.findViewById(R.id.add_pitch_to_phase);
-            change_start = itemView.findViewById(R.id.change_start_time);
-            change_end = itemView.findViewById(R.id.change_end_time);
             start_time = itemView.findViewById(R.id.start_time);
             end_time = itemView.findViewById(R.id.end_time);
         }

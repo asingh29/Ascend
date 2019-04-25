@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -17,7 +18,7 @@ import android.widget.TimePicker;
 import io.realm.Realm;
 
 public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
-    private CheckBox sunday;
+    private CheckBox[] days;
     private CheckBox monday;
     private CheckBox tuesday;
     private CheckBox wednesday;
@@ -44,16 +45,61 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
         setContentView(R.layout.activity_create__peak__add__pitch);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        Intent i = getIntent();
+        peak_name = i.getStringExtra("peakname");
+        phase_name = i.getStringExtra("phasename");
+        days = new CheckBox[7];
+        days[0] = findViewById(R.id.sunday);
+        days[1] = findViewById(R.id.monday);
+        days[2] = findViewById(R.id.tuesday);
+        days[3] = findViewById(R.id.wednesday);
+        days[4] = findViewById(R.id.thursday);
+        days[5] = findViewById(R.id.friday);
+        days[6] = findViewById(R.id.saturday);
+        pitchname = findViewById(R.id.pitch_name);
+        pitchplan = findViewById(R.id.pitch_description);
+        starttime = findViewById(R.id._start_time_pitch);
+        endtime = findViewById(R.id._end_time_pitch);
         done = findViewById(R.id.done);
         save = findViewById(R.id.save);
+
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Create_Peak_Add_Pitch.this, createPeak.class);
                 i.putExtra("peakname", peak_name);
                 startActivity(i);
+            }
+        });
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Realm realm = Realm.getDefaultInstance();
+                String pitch_name = pitchname.getText().toString();
+                Phase curPhase = realm.where(Phase.class).equalTo("name", phase_name).findFirst();
+                realm.beginTransaction();
+                Pitch newPitch = new Pitch();
+                Pitch cur = realm.where(Pitch.class).equalTo("name",pitch_name).findFirst();
+                if (cur == null) {
+                    curPhase.addPitch(newPitch);
+                }
 
+            }
+        });
+        starttime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timePicker1 = new TimePickerFragment();
+                fromstart = true;
+                timePicker1.show(getSupportFragmentManager(), "time picker");
+            }
+        });
+        endtime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timePicker1 = new TimePickerFragment();
+                fromstart = false;
+                timePicker1.show(getSupportFragmentManager(), "time picker");
             }
         });
     }

@@ -69,44 +69,47 @@ public class Phase extends RealmObject implements Serializable {
         }
     }
     public void addPitch(Pitch p) {
-        int day = p.getDay();
-        switch(day) {
-            case 0: sunday.add(p);
-                if(!all.contains(p)) {
-                    all.add(p);
-                }
-                break;
-            case 1: monday.add(p);
-                if(!all.contains(p)) {
-                    all.add(p);
-                }
-                break;
-            case 2: tuesday.add(p);
-                if(!all.contains(p)) {
-                    all.add(p);
-                }
-                break;
-            case 3: wednesday.add(p);
-                if(!all.contains(p)) {
-                    all.add(p);
-                }
-                break;
-            case 4: thursday.add(p);
-                if(!all.contains(p)) {
-                    all.add(p);
-                }
-                break;
-            case 5: friday.add(p);
-                if(!all.contains(p)) {
-                    all.add(p);
-                }
-                break;
-            case 6: saturday.add(p);
-                if(!all.contains(p)) {
-                    all.add(p);
-                }
-                break;
-            default: break;
+        if (p.sunday) {
+            sunday.add(p);
+            if(!all.contains(p)) {
+                all.add(p);
+            }
+        }
+        if (p.monday) {
+            monday.add(p);
+            if(!all.contains(p)) {
+                all.add(p);
+            }
+        }
+        if (p.tuesday) {
+            tuesday.add(p);
+            if(!all.contains(p)) {
+                all.add(p);
+            }
+        }
+        if (p.wednesday) {
+            wednesday.add(p);
+            if(!all.contains(p)) {
+                all.add(p);
+            }
+        }
+        if (p.thursday) {
+            thursday.add(p);
+            if(!all.contains(p)) {
+                all.add(p);
+            }
+        }
+        if (p.friday) {
+            friday.add(p);
+            if(!all.contains(p)) {
+                all.add(p);
+            }
+        }
+        if (p.saturday) {
+            saturday.add(p);
+            if(!all.contains(p)) {
+                all.add(p);
+            }
         }
     }
     public void setActive(boolean val) {

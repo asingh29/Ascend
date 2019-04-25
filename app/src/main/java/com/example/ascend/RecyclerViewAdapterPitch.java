@@ -53,7 +53,6 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
                 i.putExtra("pitchName", p.getName());
                 i.putExtra("start", p.getStart());
                 i.putExtra("end", p.getEnd());
-                i.putExtra("day", days[p.getDay()]);
                 nContext.startActivity(i);
             }
         });
@@ -63,10 +62,9 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
                 Intent i = new Intent(v.getContext(), pitchDescription.class);
                 i.putExtra("phasename", phasename);
                 i.putExtra("peakname", peakname);
-                i.putExtra("pitchName", p.getName());
-                i.putExtra("start", p.getStart());
-                i.putExtra("end", p.getEnd());
-                i.putExtra("day", days[p.getDay()]);
+                i.putExtra("pitchName", p.name);
+                i.putExtra("start", p.start);
+                i.putExtra("end", p.end);
                 nContext.startActivity(i);
             }
         });

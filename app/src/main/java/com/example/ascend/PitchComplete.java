@@ -31,7 +31,16 @@ public class PitchComplete extends AppCompatActivity {
         pitch = realmPitch.get(0);
         time = findViewById(R.id.time);
         plan = findViewById(R.id.plan_string);
-        time.setText(days[pitch.day] + "\n" + pitch.start + "-" + pitch.end);
+        StringBuilder buildDayString = new StringBuilder("");
+        if (pitch.sunday) buildDayString.append(days[0]);
+        if (pitch.monday) buildDayString.append(days[1]);
+        if (pitch.tuesday) buildDayString.append(days[2]);
+        if (pitch.wednesday) buildDayString.append(days[3]);
+        if (pitch.thursday) buildDayString.append(days[4]);
+        if (pitch.friday) buildDayString.append(days[5]);
+        if (pitch.saturday) buildDayString.append(days[6]);
+        String dayString = buildDayString.toString();
+        time.setText(dayString + "\n" + pitch.start + "-" + pitch.end);
         plan.setText(pitch.plan);
     }
     public void pitchComplete(View view) {

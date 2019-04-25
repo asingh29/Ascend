@@ -8,7 +8,13 @@ import io.realm.annotations.PrimaryKey;
 public class Pitch extends RealmObject implements Serializable {
     @PrimaryKey
     protected String name;
-    protected int day;
+    protected boolean sunday;
+    protected boolean monday;
+    protected boolean tuesday;
+    protected boolean wednesday;
+    protected boolean thursday;
+    protected boolean friday;
+    protected boolean saturday;
     protected String plan;
     protected String start;
     protected String end;
@@ -19,15 +25,18 @@ public class Pitch extends RealmObject implements Serializable {
         complete = false;
     }
 
-    public Pitch(String n, int d, String s, String e) {
-        this.day = d;
+    public Pitch(String n, String s, String e, boolean su, boolean m, boolean t, boolean w, boolean th, boolean f, boolean sa) {
+        sunday = su;
+        monday = m;
+        tuesday = t;
+        wednesday = w;
+        thursday = th;
+        friday = f;
+        saturday = sa;
         this.start = s;
         this.end = e;
         this.name = n;
         complete = false;
-    }
-    public int getDay() {
-        return this.day;
     }
 
     public String getName() {
