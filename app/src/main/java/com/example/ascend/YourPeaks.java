@@ -124,8 +124,8 @@ public class YourPeaks extends AppCompatActivity {
 
         Peak peak3 = new Peak("Learn how to swim", "speed through the waves", peakStartDate, peakEndDate, true);
         Phase phase31 = new Phase(phase1Start, phase1End, "Peak3Phase1", "The basics");
-        Pitch pitch31 = new Pitch("dip in the pool", 1, pitch1Start, pitch1End);
-        Pitch pitch32 = new Pitch("Doggy Paddle", 1, pitch2Start, pitch2End);
+        Pitch pitch31 = new Pitch("dip in the pool", pitch1Start, pitch1End, true, true, true, true, true, true, true);
+        Pitch pitch32 = new Pitch("Doggy Paddle", pitch2Start, pitch2End, true, true, true, true, true, true, true);
         /*
         cal.set(2019,4,10);
         Date peak2StartDate = cal.getTime();
