@@ -39,8 +39,6 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
     private Button done;
     private Button save;
 
-    UIMA was here
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
