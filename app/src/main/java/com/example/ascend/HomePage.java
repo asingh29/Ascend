@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -76,6 +77,34 @@ public class HomePage extends AppCompatActivity {
         initCurPitches();
 
         getPercent();
+        ImageView mount = findViewById(R.id.mountain);
+        if (percent < .16) {
+            mount.setImageResource(R.drawable.progressmountain1_7);
+
+        }
+        else if (percent < .33) {
+            mount.setImageResource(R.drawable.progressmountain2_7);
+
+        }
+        else if (percent < .48) {
+            mount.setImageResource(R.drawable.progressmountain3_7);
+
+        }
+        else if (percent < .68) {
+            mount.setImageResource(R.drawable.progressmountain4_7);
+
+        }
+        else if (percent < .85) {
+            mount.setImageResource(R.drawable.progressmountain5_7);
+
+        }
+        else if (percent < 1) {
+            mount.setImageResource(R.drawable.progressmountain6_7);
+
+        }
+        else {
+            mount.setImageResource(R.drawable.progressmountain7_7);
+        }
 
     }
 
