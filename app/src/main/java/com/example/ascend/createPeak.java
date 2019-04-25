@@ -50,7 +50,7 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                 case R.id.navigation_peaks:
                     return true;
                 case R.id.navigation_browse:
-                    Intent intent = new Intent(createPeak.this, KIMRiseTogether.class);
+                    Intent intent = new Intent(createPeak.this, BrowseFirstPage.class);
                     startActivity(intent);
                     return true;
             }
@@ -90,7 +90,7 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
 
                 //check if peak_start_date and peak_end_date exist-if not display toast
 
-                Peak p = new Peak(n, d, peak_start_date, peak_end_date); //fix the date here
+                Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
                 Realm realm = Realm.getDefaultInstance();
                 realm.beginTransaction();
                 Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();

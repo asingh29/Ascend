@@ -52,7 +52,7 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
                 case R.id.navigation_peaks:
                     return true;
                 case R.id.navigation_browse:
-                    Intent intent = new Intent(phasetasks.this, KIMRiseTogether.class);
+                    Intent intent = new Intent(phasetasks.this, BrowseFirstPage.class);
                     startActivity(intent);
                     return true;
             }

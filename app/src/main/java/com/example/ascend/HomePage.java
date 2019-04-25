@@ -45,7 +45,7 @@ public class HomePage extends AppCompatActivity {
                     startActivity(i);
                     return true;
                 case R.id.navigation_browse:
-                    Intent intent = new Intent(HomePage.this, KIMRiseTogether.class);
+                    Intent intent = new Intent(HomePage.this, BrowseFirstPage.class);
                     startActivity(intent);
                     return true;
             }

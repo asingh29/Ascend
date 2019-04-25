@@ -49,6 +49,8 @@ public class RecyclerViewAdapterBrowse extends  RecyclerView.Adapter<RecyclerVie
         return peaks.size();
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         Button name;
         ConstraintLayout layout;
