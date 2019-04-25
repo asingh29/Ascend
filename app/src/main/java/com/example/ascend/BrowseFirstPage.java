@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 //import com.example.ascend.RecyclerViewAdapterBrowse;
 import java.util.ArrayList;
@@ -92,6 +93,10 @@ public class BrowseFirstPage extends AppCompatActivity {
             }
         }
         initRecyclerView();
+    }
+
+    public void onClick(View v) {
+
     }
 
 }
