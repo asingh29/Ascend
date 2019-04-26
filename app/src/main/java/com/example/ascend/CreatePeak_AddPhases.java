@@ -24,6 +24,7 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
 
     private Button start_date;
     private Button end_date;
+    private Button addPitch;
     String phase_name;
     String phase_description;
     String peak_name;
@@ -45,6 +46,7 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
         final TextView desc = findViewById(R.id.add_phase_description);
         Button save = findViewById(R.id.save_phase);
         Button cancel = findViewById(R.id.discard_phase);
+        addPitch = findViewById(R.id.add_pitch);
         startDate = findViewById(R.id.add_ph_start);
         endDate = findViewById(R.id.add_ph_end);
 
@@ -79,7 +81,15 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                 startActivity(i);
             }
         });
-
+        addPitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CreatePeak_AddPhases.this, Create_Peak_Add_Pitch.class);
+                i.putExtra("peakname", peak_name);
+                i.putExtra("phasename", phase_name);
+                startActivity(i);
+            }
+        });
         start_date = findViewById(R.id.add_phase_start_date);
         end_date = findViewById(R.id.add_phase_end_date);
 

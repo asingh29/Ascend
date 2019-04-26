@@ -89,7 +89,6 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                 d = (String) desc.getText().toString();
 
                 //check if peak_start_date and peak_end_date exist-if not display toast
-
                 Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
                 Realm realm = Realm.getDefaultInstance();
                 realm.beginTransaction();
