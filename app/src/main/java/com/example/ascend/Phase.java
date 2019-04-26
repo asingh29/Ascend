@@ -69,46 +69,26 @@ public class Phase extends RealmObject implements Serializable {
     public void addPitch(Pitch p) {
         if (p.sunday) {
             sunday.add(p);
-            if(!all.contains(p)) {
-                all.add(p);
-            }
         }
         if (p.monday) {
             monday.add(p);
-            if(!all.contains(p)) {
-                all.add(p);
-            }
         }
         if (p.tuesday) {
             tuesday.add(p);
-            if(!all.contains(p)) {
-                all.add(p);
-            }
         }
         if (p.wednesday) {
             wednesday.add(p);
-            if(!all.contains(p)) {
-                all.add(p);
-            }
         }
         if (p.thursday) {
             thursday.add(p);
-            if(!all.contains(p)) {
-                all.add(p);
-            }
         }
         if (p.friday) {
             friday.add(p);
-            if(!all.contains(p)) {
-                all.add(p);
-            }
         }
         if (p.saturday) {
             saturday.add(p);
-            if(!all.contains(p)) {
-                all.add(p);
-            }
         }
+        all.add(p);
     }
     public void setActive(boolean val) {
         active = val;

@@ -27,6 +27,7 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
     String end1;
     String pitchName;
     String peakname;
+    String phasename;
     Pitch pitch;
     Button butt;
     Button butt2;
@@ -72,6 +73,7 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         navigation.setSelectedItemId(R.id.navigation_peaks);
         peakname = i.getStringExtra("peakname");
         pitchName = i.getStringExtra("pitchName");
+        phasename = i.getStringExtra("phasename");
         butt = (Button) findViewById(R.id.button);
         RealmResults<Pitch> realmPitch = realm.where(Pitch.class).equalTo("name", pitchName).findAll();
         pitch = realmPitch.get(0);
@@ -156,5 +158,9 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         realm.beginTransaction();
         pitch.plan = message;
         realm.commitTransaction();
+        Intent i = new Intent(pitchDescription.this, phasetasks.class);
+        i.putExtra("peakname", peakname);
+        i.putExtra("phasename", phasename);
+        startActivity(i);
     }
 }

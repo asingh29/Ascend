@@ -36,7 +36,7 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
     private String start1;
     private String end1;
     private boolean fromstart;
-    private Button done;
+    private Button cancel;
     private Button save;
 
     @Override
@@ -61,15 +61,16 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
         etime = findViewById(R.id.end_time);
         starttime = findViewById(R.id._start_time_pitch);
         endtime = findViewById(R.id._end_time_pitch);
-        done = findViewById(R.id.done);
+        cancel = findViewById(R.id.done);
         save = findViewById(R.id.save);
 
-        done.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Create_Peak_Add_Pitch.this, createPeak.class);
+                Intent i = new Intent(Create_Peak_Add_Pitch.this, CreatePeak_AddPhases.class);
                 i.putExtra("peakname", peak_name);
                 startActivity(i);
+                finish();
             }
         });
         save.setOnClickListener(new View.OnClickListener() {

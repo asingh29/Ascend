@@ -148,7 +148,7 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
+        String currentDateString = DateFormat.getDateInstance(DateFormat.MEDIUM).format(c.getTime());
 
         //Log.d(TAG, "onDateSet: " + view.getId());
 

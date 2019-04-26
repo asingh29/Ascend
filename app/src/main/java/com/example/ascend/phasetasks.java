@@ -122,8 +122,8 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
     private void initCurPitches() {
         Log.d(TAG, "initCurPitches: called");
         Realm realm = Realm.getDefaultInstance();
-        RealmResults<Phase> p = realm.where(Phase.class).equalTo("name", phasename).findAll();
-        RealmList<Pitch> phasey = p.get(0).all;
+        Phase p = realm.where(Phase.class).equalTo("name", phasename).findFirst();
+        RealmList<Pitch> phasey = p.all;
         Log.d(TAG, "initCurPitches: " + phasey.size());
         for (int i = 0; i < phasey.size(); i++) {
             Pitch cur = phasey.get(i);

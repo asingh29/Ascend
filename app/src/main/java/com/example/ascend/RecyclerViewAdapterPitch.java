@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerViewAdapterPitch.ViewHolder> {
 
-    private static final String TAG = "RecyclerViewAdapterPitc";
+    private static final String TAG = "RecyclerViewAdapterPitch";
     String[] days = {"Su", "M", "T", "W", "Th", "F", "S"};
 
     private ArrayList<Pitch> pitches;
@@ -69,7 +69,6 @@ public class RecyclerViewAdapterPitch  extends  RecyclerView.Adapter<RecyclerVie
             }
         });
     }
-
 
     @Override
     public int getItemCount() {

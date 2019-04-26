@@ -69,11 +69,6 @@ public class HomePage extends AppCompatActivity {
         navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         curPitches = new ArrayList<Pitch>();
-        /*String pitch1Start = "9:00";
-        String pitch1End = "10:00";
-        Pitch pitch1 = new Pitch("4 mile run", 5, pitch1Start, pitch1End);
-        curPitches.add(pitch1);
-        initRecyclerView();*/
         initCurPitches();
 
         getPercent();
@@ -105,7 +100,6 @@ public class HomePage extends AppCompatActivity {
         else {
             mount.setImageResource(R.drawable.progressmountain7_7);
         }
-
     }
 
     private void getPercent() {
@@ -116,14 +110,13 @@ public class HomePage extends AppCompatActivity {
             }
         }
         percent = complete / total;
-
     }
-
 
     public void onCLick(View view) {
         Intent i = new Intent(getApplicationContext(), YourPeaks.class);
         startActivity(i);
     }
+
     private void initCurPitches() {
         Log.d(TAG, "initCurPitches: called");
         Calendar calendar = Calendar.getInstance();
@@ -149,6 +142,7 @@ public class HomePage extends AppCompatActivity {
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
     }
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);

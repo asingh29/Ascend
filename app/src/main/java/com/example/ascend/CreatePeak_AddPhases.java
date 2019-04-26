@@ -45,12 +45,12 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
         final TextView desc = findViewById(R.id.add_phase_description);
         Button save = findViewById(R.id.save_phase);
         Button cancel = findViewById(R.id.discard_phase);
-        startDate = findViewById(R.id.add_phase_start_date);
-        endDate = findViewById(R.id.add_phase_end_date);
+        startDate = findViewById(R.id.add_ph_start);
+        endDate = findViewById(R.id.add_ph_end);
 
         peak_name = i.getStringExtra("peakname");
         if (i.hasExtra("fromaddpitch")) {
-            phase_name = i.getStringExtra("phase_name");
+            phase_name = i.getStringExtra("phasename");
             Phase cur = realm.where(Phase.class).equalTo("name", phase_name).findFirst();
             name.setText(phase_name);
             desc.setText(cur.description);
@@ -114,7 +114,7 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
+        String currentDateString = DateFormat.getDateInstance(DateFormat.MEDIUM).format(c.getTime());
 
         //Log.d(TAG, "onDateSet: " + view.getId());
 
