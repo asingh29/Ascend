@@ -53,6 +53,7 @@ public class YourPeaks extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.navigation_peaks);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setItemIconTintList(null);
 
         Realm.init(this);
         Realm realm = Realm.getDefaultInstance();

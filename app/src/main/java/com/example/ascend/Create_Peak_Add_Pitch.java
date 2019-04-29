@@ -92,6 +92,11 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
                     Snackbar.make(v, "Need a plan!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
+                if (stime.getText().length() == 0 || etime.getText().length() == 0) {
+                    good = false;
+                    Snackbar.make(v, "Need dates!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
                 if (good) {
 
                     int starthour = Integer.parseInt(start1.substring(0, start1.indexOf(":")));
@@ -130,6 +135,10 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
                         Pitch cur = realm.where(Pitch.class).equalTo("name", pitch_name).findFirst();
                         if (cur == null) {
                             curPhase.addPitch(newPitch);
+                        }
+                        else {
+                            Snackbar.make(v, "No duplicate pitches!", Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
                         }
                         realm.commitTransaction();
                         Intent i = new Intent(Create_Peak_Add_Pitch.this, CreatePeak_AddPhases.class);

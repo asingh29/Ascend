@@ -71,6 +71,7 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_peaks);
+        navigation.setItemIconTintList(null);
         peakname = i.getStringExtra("peakname");
         pitchName = i.getStringExtra("pitchName");
         phasename = i.getStringExtra("phasename");
