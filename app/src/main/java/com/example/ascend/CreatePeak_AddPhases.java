@@ -75,15 +75,28 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                     parentPeak.addPhase(p);
                 }
                 realm.commitTransaction();
-                Intent i = new Intent(CreatePeak_AddPhases.this, Create_Peak_Add_Pitch.class);
-                i.putExtra("peakname", peak_name);
-                i.putExtra("phasename", phase_name);
-                startActivity(i);
+                Snackbar.make(view, "Phase saved!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
         addPitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                phase_name = name.getText().toString();
+                phase_description = desc.getText().toString();
+
+                //need to check if phase start date and phase end date exist
+                Realm realm = Realm.getDefaultInstance();
+                Peak parentPeak =  realm.where(Peak.class).equalTo("name", peak_name).findFirst();
+                Phase p = new Phase(phaseStartDate, phaseEndDate, phase_name, phase_description); //fix the date here
+                realm.beginTransaction();
+                Phase cur = realm.where(Phase.class).equalTo("name", phase_name).findFirst();
+                if (cur == null) {
+                    parentPeak.addPhase(p);
+                }
+                realm.commitTransaction();
+                Snackbar.make(v, "Phase saved!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
                 Intent i = new Intent(CreatePeak_AddPhases.this, Create_Peak_Add_Pitch.class);
                 i.putExtra("peakname", peak_name);
                 i.putExtra("phasename", phase_name);
@@ -114,6 +127,10 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(CreatePeak_AddPhases.this, createPeak.class);
+                i.putExtra("peakname", peak_name);
+                i.putExtra("peakSet", true);
+                startActivity(i);
                 finish();
             }
         });

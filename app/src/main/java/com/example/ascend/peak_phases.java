@@ -70,6 +70,7 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_peaks);
+        navigation.setItemIconTintList(null);
 
         changeStart = findViewById(R.id.change_start);
 

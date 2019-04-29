@@ -68,6 +68,7 @@ public class HomePage extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setItemIconTintList(null);
         curPitches = new ArrayList<Pitch>();
         initCurPitches();
 

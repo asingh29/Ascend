@@ -66,13 +66,29 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        navigation.setItemIconTintList(null);
+        Realm realm = Realm.getDefaultInstance();
         final TextView name = (TextView) findViewById(R.id.peak_name);
         final TextView desc = (TextView) findViewById(R.id.peak_description);
         final Button save = (Button) findViewById(R.id.save);
         final Button cancel = (Button) findViewById(R.id.cancel);
         startDate = findViewById(R.id.starter);
         endDate = findViewById(R.id.ender);
+        Intent i = getIntent();
+        boolean peakSet = i.getBooleanExtra("peakSet", false);
+        if (peakSet) {
+            n = i.getStringExtra("peakname");
+            Peak curPeak = realm.where(Peak.class).equalTo("name", n).findFirst();
+            d = curPeak.description;
+            peak_start_date = curPeak.start;
+            peak_end_date = curPeak.end;
+            String currentDateString = DateFormat.getDateInstance(DateFormat.MEDIUM).format(peak_start_date);
+            startDate.setText(currentDateString);
+            currentDateString = DateFormat.getDateInstance(DateFormat.MEDIUM).format(peak_end_date);
+            endDate.setText(currentDateString);
+            name.setText(n);
+            desc.setText(d);
+        }
 
         //Set initial dates to today and some set future date
         /*
@@ -87,11 +103,8 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
             public void onClick(View view) {
 
                 if (peak_start_date.compareTo(peak_end_date) < 0) {
-
-
                     n = (String) name.getText().toString();
                     d = (String) desc.getText().toString();
-
 
                     Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
                     Realm realm = Realm.getDefaultInstance();
