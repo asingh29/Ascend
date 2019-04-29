@@ -16,6 +16,8 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -69,6 +71,14 @@ public class HomePage extends AppCompatActivity {
         navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setItemIconTintList(null);
+        Date curDate = GregorianCalendar.getInstance().getTime();
+        realm.beginTransaction();
+        RealmResults<Phase> phases = realm.where(Phase.class).findAll();
+        for (Phase p : phases) {
+            if (p.start.compareTo(curDate) < 0 && p.end.compareTo(curDate) > 0 ) p.active = true;
+            else p.active = false;
+        }
+        realm.commitTransaction();
         curPitches = new ArrayList<Pitch>();
         initCurPitches();
 
