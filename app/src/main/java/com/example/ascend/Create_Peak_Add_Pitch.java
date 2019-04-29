@@ -131,6 +131,10 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
                         if (cur == null) {
                             curPhase.addPitch(newPitch);
                         }
+                        else {
+                            Snackbar.make(v, "No duplicate pitches!", Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
+                        }
                         realm.commitTransaction();
                         Intent i = new Intent(Create_Peak_Add_Pitch.this, CreatePeak_AddPhases.class);
                         i.putExtra("peakname", peak_name);

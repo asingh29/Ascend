@@ -110,6 +110,10 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                         if (marathon == null) {
                             realm.copyToRealm(p);
                         }
+                        else {
+                            Snackbar.make(view, "No duplicate peaks!", Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
+                        }
                         realm.commitTransaction();
                     } else {
                         Snackbar.make(view, "Start date cannot be after end date!", Snackbar.LENGTH_LONG)

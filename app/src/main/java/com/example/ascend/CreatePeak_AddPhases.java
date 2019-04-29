@@ -91,6 +91,10 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                         if (cur == null) {
                             parentPeak.addPhase(p);
                         }
+                        else {
+                            Snackbar.make(view, "No duplicate phases!", Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
+                        }
                         realm.commitTransaction();
                         Intent i = new Intent(CreatePeak_AddPhases.this, Create_Peak_Add_Pitch.class);
                         i.putExtra("peakname", peak_name);
