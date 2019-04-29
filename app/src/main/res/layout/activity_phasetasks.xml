@@ -102,6 +102,7 @@
         android:layout_width="169dp"
         android:layout_height="70dp"
         android:layout_marginBottom="30dp"
+        android:onClick="onCLick"
         android:text="Delete Phase"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
