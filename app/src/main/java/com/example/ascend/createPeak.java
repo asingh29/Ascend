@@ -100,6 +100,11 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                     Snackbar.make(view, "Need a description!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
+                if (startDate.getText().length() == 0 || endDate.getText().length() == 0) {
+                    good = false;
+                    Snackbar.make(view, "Need dates!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
 
                 if (good) {
                     if (peak_start_date.compareTo(peak_end_date) < 0) {
