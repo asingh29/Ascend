@@ -139,7 +139,8 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
             format = "AM";
         }
         if (fromstart == true) {
-            start1 = "" + hourOfDay + ":" + minute + " " + format;
+            start1 = String.format("%02d:%02d", hourOfDay, minute);
+            start1 = start1 + format;
             //name.setText("Peak: " + peakname + "\n" + new StringBuilder().append(hourOfDay).append(" : ").append(minute).append(" ").append(format));
             Realm realm = Realm.getDefaultInstance();
             realm.beginTransaction();
@@ -149,7 +150,8 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
             Snackbar.make(butt, "Time changed!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         } else if (fromstart == false) {
-            end1 = "" + hourOfDay + ":" + minute + " " + format;
+            end1 = String.format("%02d:%02d", hourOfDay, minute);
+            end1 = end1 + format;
             Realm realm = Realm.getDefaultInstance();
             realm.beginTransaction();
             pitch.end = end1;

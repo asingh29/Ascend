@@ -188,12 +188,14 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
             format = "AM";
         }
         if (fromstart == true) {
-            start1 = "" + hourOfDay + ":" + minute + " " + format;
+            start1 = String.format("%02d:%02d", hourOfDay, minute);
+            start1 = start1 + format;
             stime.setText(start1);
             Snackbar.make(starttime, "Time changed!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         } else if (fromstart == false) {
-            end1 = "" + hourOfDay + ":" + minute + " " + format;
+            end1 = String.format("%02d:%02d", hourOfDay, minute);
+            end1 = end1 + format;
             etime.setText(end1);
             Snackbar.make(endtime, "Time changed!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
