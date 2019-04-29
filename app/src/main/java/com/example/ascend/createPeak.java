@@ -69,7 +69,6 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
 
         final TextView name = (TextView) findViewById(R.id.peak_name);
         final TextView desc = (TextView) findViewById(R.id.peak_description);
-        final TextView error = (TextView) findViewById(R.id.error);
         final Button save = (Button) findViewById(R.id.save);
         final Button cancel = (Button) findViewById(R.id.cancel);
         startDate = findViewById(R.id.starter);
@@ -89,7 +88,6 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
 
                 if (peak_start_date.compareTo(peak_end_date) < 0) {
 
-                    error.setText("");
 
                     n = (String) name.getText().toString();
                     d = (String) desc.getText().toString();
@@ -105,7 +103,8 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                     realm.commitTransaction();
                 }
                 else {
-                    error.setText("Start date cannot be after end date!!!");
+                    Snackbar.make(view, "Start date cannot be after end date!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
             }
         });
