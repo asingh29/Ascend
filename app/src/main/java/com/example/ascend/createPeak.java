@@ -70,7 +70,7 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
         Realm realm = Realm.getDefaultInstance();
         final TextView name = (TextView) findViewById(R.id.peak_name);
         final TextView desc = (TextView) findViewById(R.id.peak_description);
-        final Button save = (Button) findViewById(R.id.save);
+        final Button done = (Button) findViewById(R.id.save);
         final Button cancel = (Button) findViewById(R.id.cancel);
         startDate = findViewById(R.id.starter);
         endDate = findViewById(R.id.ender);
@@ -98,50 +98,42 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
         endDate.setText(currentDateString);
         */
 
-        save.setOnClickListener(new View.OnClickListener() {
+        done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                boolean good = true;
                 n = (String) name.getText().toString();
                 d = (String) desc.getText().toString();
 
                 if (n.length() == 0) {
-                    good = false;
                     Snackbar.make(view, "Need a name!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
 
                 }
-                if (d.length() == 0) {
-                    good = false;
+                else if (d.length() == 0) {
                     Snackbar.make(view, "Need a description!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-                if (startDate.getText().length() == 0 || endDate.getText().length() == 0) {
-                    good = false;
+                else if (startDate.getText().length() == 0 || endDate.getText().length() == 0) {
                     Snackbar.make(view, "Need dates!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
 
-                if (good) {
-                    if (peak_start_date.compareTo(peak_end_date) < 0) {
-                        Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
-                        Realm realm = Realm.getDefaultInstance();
-                        realm.beginTransaction();
-                        Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
-                        if (marathon == null) {
-                            realm.copyToRealm(p);
-                        }
-                        else {
-                            Snackbar.make(view, "No duplicate peaks!", Snackbar.LENGTH_LONG)
-                                    .setAction("Action", null).show();
-                        }
+                else if (peak_start_date.compareTo(peak_end_date) < 0) {
+                    Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
+                    Realm realm = Realm.getDefaultInstance();
+                    realm.beginTransaction();
+                    Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
+                    if (marathon == null) {
+                        realm.copyToRealm(p);
                         realm.commitTransaction();
+                        finish();
                     } else {
-                        Snackbar.make(view, "Start date cannot be after end date!", Snackbar.LENGTH_LONG)
+                        Snackbar.make(view, "No duplicate peaks!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
+                } else {
+                    Snackbar.make(view, "Start date cannot be after end date!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
             }
         });
@@ -173,36 +165,30 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
         add_phase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                boolean good = true;
                 n = (String) name.getText().toString();
                 d = (String) desc.getText().toString();
 
                 if (n.length() == 0) {
-                    good = false;
                     Snackbar.make(v, "Need a name!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
 
                 }
-                if (d.length() == 0) {
-                    good = false;
+                else if (d.length() == 0) {
                     Snackbar.make(v, "Need a description!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-                if (startDate.getText().length() == 0 || endDate.getText().length() == 0) {
-                    good = false;
+                else if (startDate.getText().length() == 0 || endDate.getText().length() == 0) {
                     Snackbar.make(v, "Need dates!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-
-                if (good) {
-                    if (peak_start_date.compareTo(peak_end_date) < 0) {
+                else if (peak_start_date.compareTo(peak_end_date) < 0) {
                         Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
                         Realm realm = Realm.getDefaultInstance();
                         realm.beginTransaction();
                         Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
                         if (marathon == null) {
                             realm.copyToRealm(p);
+                            realm.commitTransaction();
                             Intent i = new Intent(createPeak.this, CreatePeak_AddPhases.class);
                             i.putExtra("peakname", n);
                             startActivity(i);
@@ -211,14 +197,11 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                             Snackbar.make(v, "No duplicate peaks!", Snackbar.LENGTH_LONG)
                                     .setAction("Action", null).show();
                         }
-                        realm.commitTransaction();
 
-                    } else {
-                        Snackbar.make(v, "Start date cannot be after end date!", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
-                    }
+                } else {
+                    Snackbar.make(v, "Start date cannot be after end date!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
-
             }
         });
 

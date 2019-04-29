@@ -102,8 +102,8 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
 
                     int starthour = Integer.parseInt(start1.substring(0, start1.indexOf(":")));
                     int endhour = Integer.parseInt(end1.substring(0, end1.indexOf(":")));
-                    int startmin = Integer.parseInt(start1.substring(start1.indexOf(":") + 1, start1.indexOf(":") + 3));
-                    int endmin = Integer.parseInt(end1.substring(end1.indexOf(":") + 1, end1.indexOf(":") + 3));
+                    int startmin = Integer.parseInt(start1.substring(start1.indexOf(":") + 1, start1.indexOf(" ")));
+                    int endmin = Integer.parseInt(end1.substring(end1.indexOf(":") + 1, end1.indexOf(" ")));
                     if (start1.indexOf("P") > -1) {
                         starthour = starthour + 12;
                     } else {
