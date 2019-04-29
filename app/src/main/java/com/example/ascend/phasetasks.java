@@ -183,6 +183,41 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
             Pitch cur = phasey.get(i);
             cur.deleteFromRealm();
         }
+        RealmList<Pitch> Sunday = p.sunday;
+        for (int i = 0; i < Sunday.size(); i++) {
+            Pitch cur = Sunday.get(i);
+            cur.deleteFromRealm();
+        }
+        RealmList<Pitch> Monday = p.monday;
+        for (int i = 0; i < Monday.size(); i++) {
+            Pitch cur = Monday.get(i);
+            cur.deleteFromRealm();
+        }
+        RealmList<Pitch> tuesday = p.tuesday;
+        for (int i = 0; i < tuesday.size(); i++) {
+            Pitch cur = tuesday.get(i);
+            cur.deleteFromRealm();
+        }
+        RealmList<Pitch> wednesday = p.wednesday;
+        for (int i = 0; i < wednesday.size(); i++) {
+            Pitch cur = wednesday.get(i);
+            cur.deleteFromRealm();
+        }
+        RealmList<Pitch> thur = p.thursday;
+        for (int i = 0; i < thur.size(); i++) {
+            Pitch cur = thur.get(i);
+            cur.deleteFromRealm();
+        }
+        RealmList<Pitch> friday = p.friday;
+        for (int i = 0; i < friday.size(); i++) {
+            Pitch cur = friday.get(i);
+            cur.deleteFromRealm();
+        }
+        RealmList<Pitch> saturday = p.saturday;
+        for (int i = 0; i < saturday.size(); i++) {
+            Pitch cur = saturday.get(i);
+            cur.deleteFromRealm();
+        }
         p.deleteFromRealm();
         realm.commitTransaction();
         Intent i = new Intent(phasetasks.this, peak_phases.class);

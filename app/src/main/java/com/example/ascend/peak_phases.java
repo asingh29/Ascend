@@ -184,6 +184,7 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         Peak peaky = realm.where(Peak.class).equalTo("name", peakname).findFirst();
+
         for (int i = 0; i < peaky.phase.size(); i++) {
             Phase cur = peaky.phase.get(i);
             RealmList<Pitch> phasey = cur.all;
@@ -191,9 +192,45 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
                 Pitch cur2 = phasey.get(j);
                 cur2.deleteFromRealm();
             }
+            RealmList<Pitch> Sunday = cur.sunday;
+            for (int j = 0; j < Sunday.size(); j++) {
+                Pitch cur2 = Sunday.get(j);
+                cur2.deleteFromRealm();
+            }
+            RealmList<Pitch> Monday = cur.monday;
+            for (int j = 0; j < Monday.size(); j++) {
+                Pitch cur2 = Monday.get(j);
+                cur2.deleteFromRealm();
+            }
+            RealmList<Pitch> tuesday = cur.tuesday;
+            for (int j = 0; j < tuesday.size(); j++) {
+                Pitch cur2 = tuesday.get(j);
+                cur2.deleteFromRealm();
+            }
+            RealmList<Pitch> wednesday = cur.wednesday;
+            for (int j = 0; j < wednesday.size(); j++) {
+                Pitch cur2 = wednesday.get(j);
+                cur2.deleteFromRealm();
+            }
+            RealmList<Pitch> thur = cur.thursday;
+            for (int j = 0; j < thur.size(); j++) {
+                Pitch cur2 = thur.get(j);
+                cur2.deleteFromRealm();
+            }
+            RealmList<Pitch> friday = cur.friday;
+            for (int j = 0; j < friday.size(); j++) {
+                Pitch cur2 = friday.get(j);
+                cur2.deleteFromRealm();
+            }
+            RealmList<Pitch> saturday = cur.saturday;
+            for (int j = 0; j < saturday.size(); j++) {
+                Pitch cur2 = saturday.get(j);
+                cur2.deleteFromRealm();
+            }
             cur.deleteFromRealm();
         }
         peaky.deleteFromRealm();
+
         realm.commitTransaction();
         Intent i = new Intent(peak_phases.this, YourPeaks.class);
         startActivity(i);
