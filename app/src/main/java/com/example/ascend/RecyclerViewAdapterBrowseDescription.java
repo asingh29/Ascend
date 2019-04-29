@@ -55,7 +55,7 @@ public class RecyclerViewAdapterBrowseDescription extends  RecyclerView.Adapter<
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
-            layout = itemView.findViewById(R.id.peaks_layout);
+            layout = itemView.findViewById(R.id.browse_layout_description);
         }
     }
 }
