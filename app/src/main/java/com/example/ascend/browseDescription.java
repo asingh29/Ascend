@@ -93,7 +93,11 @@ public class browseDescription extends AppCompatActivity {
     }
 
     public void onClick(View v) {
-
+        Realm realm = Realm.getDefaultInstance();
+        Peak peaky = realm.where(Peak.class).equalTo("name", peakname).findFirst();
+        realm.beginTransaction();
+        peaky.browse = false;
+        realm.commitTransaction();
     }
 
 }
