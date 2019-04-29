@@ -69,7 +69,6 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
 
         final TextView name = (TextView) findViewById(R.id.peak_name);
         final TextView desc = (TextView) findViewById(R.id.peak_description);
-        final TextView error = (TextView) findViewById(R.id.error);
         final Button save = (Button) findViewById(R.id.save);
         final Button cancel = (Button) findViewById(R.id.cancel);
         startDate = findViewById(R.id.starter);
