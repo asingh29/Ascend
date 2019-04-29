@@ -178,4 +178,14 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         }
 
     }
+
+    public void onClick(View v) {
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        Peak peaky = realm.where(Peak.class).equalTo("name", peakname).findFirst();
+        peaky.deleteFromRealm();
+        realm.commitTransaction();
+        Intent i = new Intent(peak_phases.this, YourPeaks.class);
+        startActivity(i);
+    }
 }
