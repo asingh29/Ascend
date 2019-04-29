@@ -69,6 +69,7 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
 
         final TextView name = (TextView) findViewById(R.id.peak_name);
         final TextView desc = (TextView) findViewById(R.id.peak_description);
+        final TextView error = (TextView) findViewById(R.id.error);
         final Button save = (Button) findViewById(R.id.save);
         final Button cancel = (Button) findViewById(R.id.cancel);
         startDate = findViewById(R.id.starter);
@@ -85,18 +86,27 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                n = (String) name.getText().toString();
-                d = (String) desc.getText().toString();
 
-                //check if peak_start_date and peak_end_date exist-if not display toast
-                Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
-                Realm realm = Realm.getDefaultInstance();
-                realm.beginTransaction();
-                Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
-                if (marathon == null) {
-                    realm.copyToRealm(p);
+                if (peak_start_date.compareTo(peak_end_date) < 0) {
+
+                    error.setText("");
+
+                    n = (String) name.getText().toString();
+                    d = (String) desc.getText().toString();
+
+
+                    Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
+                    Realm realm = Realm.getDefaultInstance();
+                    realm.beginTransaction();
+                    Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
+                    if (marathon == null) {
+                        realm.copyToRealm(p);
+                    }
+                    realm.commitTransaction();
                 }
-                realm.commitTransaction();
+                else {
+                    error.setText("Start date cannot be after end date!!!");
+                }
             }
         });
 
