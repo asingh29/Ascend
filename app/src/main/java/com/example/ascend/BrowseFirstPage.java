@@ -95,5 +95,4 @@ public class BrowseFirstPage extends AppCompatActivity {
         initRecyclerView();
     }
 
-
 }
