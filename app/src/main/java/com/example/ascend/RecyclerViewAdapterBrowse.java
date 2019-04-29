@@ -31,7 +31,7 @@ public class RecyclerViewAdapterBrowse extends  RecyclerView.Adapter<RecyclerVie
     @NonNull
     @Override
     public RecyclerViewAdapterBrowse.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_browse_first_page, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.browse_layout, viewGroup, false);
         RecyclerViewAdapterBrowse.ViewHolder Holder = new RecyclerViewAdapterBrowse.ViewHolder(view);
         return Holder;
     }
