@@ -86,25 +86,35 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
             @Override
             public void onClick(View view) {
 
-                if (peak_start_date.compareTo(peak_end_date) < 0) {
+                boolean good = true;
+                n = (String) name.getText().toString();
+                d = (String) desc.getText().toString();
 
-
-                    n = (String) name.getText().toString();
-                    d = (String) desc.getText().toString();
-
-
-                    Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
-                    Realm realm = Realm.getDefaultInstance();
-                    realm.beginTransaction();
-                    Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
-                    if (marathon == null) {
-                        realm.copyToRealm(p);
-                    }
-                    realm.commitTransaction();
-                }
-                else {
-                    Snackbar.make(view, "Start date cannot be after end date!", Snackbar.LENGTH_LONG)
+                if (n.length() == 0) {
+                    good = false;
+                    Snackbar.make(view, "Need a name!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+                }
+                if (d.length() == 0) {
+                    good = false;
+                    Snackbar.make(view, "Need a description!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+
+                if (good) {
+                    if (peak_start_date.compareTo(peak_end_date) < 0) {
+                        Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
+                        Realm realm = Realm.getDefaultInstance();
+                        realm.beginTransaction();
+                        Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
+                        if (marathon == null) {
+                            realm.copyToRealm(p);
+                        }
+                        realm.commitTransaction();
+                    } else {
+                        Snackbar.make(view, "Start date cannot be after end date!", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                    }
                 }
             }
         });
