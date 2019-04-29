@@ -176,8 +176,14 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
     public void onCLick(View v) {
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
-        Phase phasey = realm.where(Phase.class).equalTo("name", phasename).findFirst();
-        phasey.deleteFromRealm();
+        Phase p = realm.where(Phase.class).equalTo("name", phasename).findFirst();
+        RealmList<Pitch> phasey = p.all;
+        Log.d(TAG, "initCurPitches: " + phasey.size());
+        for (int i = 0; i < phasey.size(); i++) {
+            Pitch cur = phasey.get(i);
+            cur.deleteFromRealm();
+        }
+        p.deleteFromRealm();
         realm.commitTransaction();
         Intent i = new Intent(phasetasks.this, peak_phases.class);
         i.putExtra("peakname", peakname);
