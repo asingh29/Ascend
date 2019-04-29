@@ -20,18 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation" />
 
-    <TextView
-        android:id="@+id/peak_name"
-        android:layout_width="416dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/listOfPhases"
         android:layout_width="wrap_content"
