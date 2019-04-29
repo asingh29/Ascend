@@ -111,7 +111,7 @@
         android:layout_height="15dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/textview"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/_start_time_pitch"
         app:layout_constraintTop_toBottomOf="@+id/pitch_description" />
 
@@ -143,7 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/_end_time_pitch"
         app:layout_constraintTop_toBottomOf="@+id/_start_time_pitch" />
 

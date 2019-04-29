@@ -76,6 +76,11 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                     Snackbar.make(view, "Need a description!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
+                if (startDate.getText().length() == 0 || endDate.getText().length() == 0) {
+                    good = false;
+                    Snackbar.make(view, "Need dates!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
                 if (good) {
                     if (phaseStartDate.compareTo(phaseEndDate) < 0) {
                         //need to check if phase start date and phase end date exist

@@ -92,6 +92,11 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
                     Snackbar.make(v, "Need a plan!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
+                if (stime.getText().length() == 0 || etime.getText().length() == 0) {
+                    good = false;
+                    Snackbar.make(v, "Need dates!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
                 if (good) {
 
                     int starthour = Integer.parseInt(start1.substring(0, start1.indexOf(":")));
