@@ -23,6 +23,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 
 public class peak_phases extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
@@ -180,6 +181,15 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         Peak peaky = realm.where(Peak.class).equalTo("name", peakname).findFirst();
+        for (int i = 0; i < peaky.phase.size(); i++) {
+            Phase cur = peaky.phase.get(i);
+            RealmList<Pitch> phasey = cur.all;
+            for (int j = 0; j < phasey.size(); j++) {
+                Pitch cur2 = phasey.get(j);
+                cur2.deleteFromRealm();
+            }
+            cur.deleteFromRealm();
+        }
         peaky.deleteFromRealm();
         realm.commitTransaction();
         Intent i = new Intent(peak_phases.this, YourPeaks.class);
