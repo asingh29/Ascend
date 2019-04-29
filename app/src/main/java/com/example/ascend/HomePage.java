@@ -72,11 +72,13 @@ public class HomePage extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setItemIconTintList(null);
         Date curDate = GregorianCalendar.getInstance().getTime();
-
+        realm.beginTransaction();
         RealmResults<Phase> phases = realm.where(Phase.class).findAll();
         for (Phase p : phases) {
             if (p.start.compareTo(curDate) < 0 && p.end.compareTo(curDate) > 0 ) p.active = true;
+            else p.active = false;
         }
+        realm.commitTransaction();
         curPitches = new ArrayList<Pitch>();
         initCurPitches();
 
