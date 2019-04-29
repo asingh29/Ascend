@@ -58,6 +58,8 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
             desc.setText(cur.description);
             startDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(cur.start));
             endDate.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(cur.end));
+            phaseStartDate = cur.start;
+            phaseEndDate = cur.end;
         }
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,18 +73,17 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                     Snackbar.make(view, "Need a name!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-                if (phase_description.length() == 0) {
+                else if (phase_description.length() == 0) {
                     good = false;
                     Snackbar.make(view, "Need a description!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-                if (startDate.getText().length() == 0 || endDate.getText().length() == 0) {
+                else if (startDate.getText().length() == 0 || endDate.getText().length() == 0) {
                     good = false;
                     Snackbar.make(view, "Need dates!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-                if (good) {
-                    if (phaseStartDate.compareTo(phaseEndDate) < 0) {
+                else if (phaseStartDate.compareTo(phaseEndDate) < 0) {
                         //need to check if phase start date and phase end date exist
                         Realm realm = Realm.getDefaultInstance();
                         Peak parentPeak = realm.where(Peak.class).equalTo("name", peak_name).findFirst();
@@ -97,9 +98,9 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                                     .setAction("Action", null).show();
                         }
                         realm.commitTransaction();
-                        Intent i = new Intent(CreatePeak_AddPhases.this, Create_Peak_Add_Pitch.class);
+                        Intent i = new Intent(CreatePeak_AddPhases.this, createPeak.class);
                         i.putExtra("peakname", peak_name);
-                        i.putExtra("phasename", phase_name);
+                        i.putExtra("peakSet", true);
                         startActivity(i);
                         Snackbar.make(view, "Phase saved!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
@@ -108,8 +109,6 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                                 .setAction("Action", null).show();
                     }
                 }
-
-            }
         });
         addPitch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,12 +159,6 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                                 .setAction("Action", null).show();
                     }
                 }
-
-
-
-
-
-
             }
         });
         start_date = findViewById(R.id.add_phase_start_date);
