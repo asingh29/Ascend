@@ -87,17 +87,22 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
                     Snackbar.make(v, "Need a name!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-                if (pitchplan.length() == 0) {
+                else if (pitchplan.length() == 0) {
                     good = false;
                     Snackbar.make(v, "Need a plan!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-                if (stime.getText().length() == 0 || etime.getText().length() == 0) {
+                else if (stime.getText().length() == 0 || etime.getText().length() == 0) {
                     good = false;
-                    Snackbar.make(v, "Need dates!", Snackbar.LENGTH_LONG)
+                    Snackbar.make(v, "Need times!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-                //ADD CHECK IF BOX IS CHECKED
+                else if (!(sunday.isChecked() || monday.isChecked() || tuesday.isChecked() || wednesday.isChecked() ||
+                        thursday.isChecked() || friday.isChecked() || saturday.isChecked())) {
+                    good = false;
+                    Snackbar.make(v, "Need days!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
                 if (good) {
 
                     int starthour = Integer.parseInt(start1.substring(0, start1.indexOf(":")));
