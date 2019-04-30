@@ -190,6 +190,8 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                             realm.copyToRealm(p);
                             realm.commitTransaction();
                             Intent i = new Intent(createPeak.this, CreatePeak_AddPhases.class);
+                            i.putExtra("start", p.start);
+                            i.putExtra("end", p.end);
                             i.putExtra("peakname", n);
                             startActivity(i);
                         }
