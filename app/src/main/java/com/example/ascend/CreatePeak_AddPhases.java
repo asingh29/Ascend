@@ -84,7 +84,6 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                             .setAction("Action", null).show();
                 }
                 else if (phaseStartDate.compareTo(phaseEndDate) < 0) {
-                        //need to check if phase start date and phase end date exist
                         Realm realm = Realm.getDefaultInstance();
                         Peak parentPeak = realm.where(Peak.class).equalTo("name", peak_name).findFirst();
                         Phase p = new Phase(phaseStartDate, phaseEndDate, phase_name, phase_description); //fix the date here

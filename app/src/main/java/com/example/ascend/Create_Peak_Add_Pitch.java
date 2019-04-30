@@ -109,14 +109,14 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
                     int endhour = Integer.parseInt(end1.substring(0, end1.indexOf(":")));
                     int startmin = Integer.parseInt(start1.substring(start1.indexOf(":") + 1, start1.indexOf(" ")));
                     int endmin = Integer.parseInt(end1.substring(end1.indexOf(":") + 1, end1.indexOf(" ")));
-                    if (start1.indexOf("P") > -1) {
+                    if (start1.contains("P")) {
                         starthour = starthour + 12;
                     } else {
                         if (starthour == 12) {
                             starthour = 0;
                         }
                     }
-                    if (end1.indexOf("P") > -1) {
+                    if (end1.contains("P")) {
                         endhour = endhour + 12;
                     } else {
                         if (endhour == 12) {
@@ -192,13 +192,13 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
         } else {
             format = "AM";
         }
-        if (fromstart == true) {
+        if (fromstart) {
             start1 = String.format("%02d:%02d", hourOfDay, minute);
             start1 = start1 + format;
             stime.setText(start1);
             Snackbar.make(starttime, "Time changed!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
-        } else if (fromstart == false) {
+        } else if (fromstart) {
             end1 = String.format("%02d:%02d", hourOfDay, minute);
             end1 = end1 + format;
             etime.setText(end1);
