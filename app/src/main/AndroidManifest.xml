@@ -21,7 +21,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".createPeak"
-            android:label="Create a Peak" />
+            android:label="Create Your Own Peak" />
         <activity
             android:name=".KIMRiseTogether"
             android:label="@string/title_activity_kimrise_together"
@@ -42,7 +42,7 @@
             android:label="@string/title_activity_phasetasks" />
         <activity
             android:name=".pitchDescription"
-            android:label="pitchDescription" />
+            android:label="Pitch Description" />
         <activity
             android:name=".peak_phases"
             android:label="@string/title_activity_peak_phases" />

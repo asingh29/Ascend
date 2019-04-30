@@ -96,71 +96,10 @@ public class YourPeaks extends AppCompatActivity {
     }
 
     public void addPeak(View view) {
-        Realm realm = Realm.getDefaultInstance();
-        boolean[] days = new boolean[7];
-        Arrays.fill(days, true);
-        Calendar cal = new GregorianCalendar();
-        cal.set(2019,4,10);
-        Date peakStartDate = cal.getTime();
-        cal.set(2019, 5, 10);
-        Date peakEndDate = cal.getTime();
-        Peak peak1 = new Peak("Run a Marathon", "run fast, run hard", peakStartDate, peakEndDate, true);
-        cal.set(2019, 4, 10);
-        Date phase1Start = cal.getTime();
-        cal.set(2019, 4, 30);
-        Date phase1End = cal.getTime();
-        Phase phase1 = new Phase(phase1Start, phase1End, "Peak1Phase1", "Warming Up");
-        String pitch1Start = "9:00";
-        String pitch1End = "10:00";
-        String pitch2Start = "11:00";
-        String pitch2End = "12:00";
-        Pitch pitch1 = new Pitch("4 mile run", "Warmup", pitch1Start, pitch1End, true, true, true, true, true, true, true);
-        Pitch pitch2 = new Pitch("Eat a Healthy Lunch", "2 fruits and veggies",pitch2Start, pitch2End, true, true, true, true, true, true, true);
-        pitch1.plan = "Warmup";
-        pitch2.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protein\n" + "1 serving rice\n";
-        phase1.addPitch(pitch1);
-        phase1.addPitch(pitch2);
-        phase1.active = true;
-        peak1.addPhase(phase1);
-
-        Peak peak3 = new Peak("Learn how to swim", "speed through the waves", peakStartDate, peakEndDate, true);
-        Phase phase31 = new Phase(phase1Start, phase1End, "Peak3Phase1", "The basics");
-        Pitch pitch31 = new Pitch("dip in the pool", "get toes wet", pitch1Start, pitch1End, true, true, true, true, true, true, true);
-        Pitch pitch32 = new Pitch("Doggy Paddle", "doggystyle", pitch2Start, pitch2End, true, true, true, true, true, true, true);
-        /*
-        cal.set(2019,4,10);
-        Date peak2StartDate = cal.getTime();
-        cal.set(2019, 5, 10);
-        Date peak2EndDate = cal.getTime();
-        Peak peak2 = new Peak("Run a Marathon2", "run fast, run hard", peakStartDate, peakEndDate, true);
-        cal.set(2019, 4, 10);
-        Date phase2Start = cal.getTime();
-        cal.set(2019, 4, 30);
-        Date phase2End = cal.getTime();
-        Phase phase12 = new Phase(phase1Start, phase1End, "Peak2Phase2", "Warming Up");
-        String pitch3Start = "9:00";
-        String pitch3End = "10:00";
-        String pitch4Start = "11:00";
-        String pitch4End = "12:00";
-        Pitch pitch3 = new Pitch("4 mile run2", 1, pitch1Start, pitch1End);
-        Pitch pitch4 = new Pitch("Eat a Healthy Lunch2", 1, pitch2Start, pitch2End);
-        pitch3.plan = "Warmup";
-        pitch4.plan = "2 fruits\n" + "3 veggies\n" + "1 serving protien\n" + "1 serving rice\n";
-        phase12.addPitch(pitch3);
-        phase12.addPitch(pitch4);
-        phase12.active = true;
-        peak2.addPhase(phase12);*/
-
         Intent i;
         i = new Intent(this, createPeak.class);
         startActivity(i);
 
-        realm.beginTransaction();
-        Peak marathon = realm.where(Peak.class).equalTo("name", "Run a Marathon").findFirst();
-        if (marathon == null) realm.copyToRealm(peak1);
-        /*Peak marathon2 = realm.where(Peak.class).equalTo("name", "Run a Marathon2").findFirst();
-        if (marathon2 == null) realm.copyToRealm(peak2);*/
-        realm.commitTransaction();
         initCurPeaks();
     }
 
