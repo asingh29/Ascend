@@ -107,22 +107,19 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
 
                     int starthour = Integer.parseInt(start1.substring(0, start1.indexOf(":")));
                     int endhour = Integer.parseInt(end1.substring(0, end1.indexOf(":")));
-                    int startmin = Integer.parseInt(start1.substring(start1.indexOf(":") + 1, start1.indexOf(" ")));
-                    int endmin = Integer.parseInt(end1.substring(end1.indexOf(":") + 1, end1.indexOf(" ")));
-                    if (start1.contains("P")) {
+                    int startmin = Integer.parseInt(start1.substring(start1.indexOf(":") + 1, start1.indexOf(":") + 3));
+                    int endmin = Integer.parseInt(end1.substring(end1.indexOf(":") + 1, end1.indexOf(":") + 3));
+                    if (start1.contains("P") && starthour != 12) {
                         starthour = starthour + 12;
-                    } else {
-                        if (starthour == 12) {
-                            starthour = 0;
-                        }
-                    }
-                    if (end1.contains("P")) {
-                        endhour = endhour + 12;
-                    } else {
-                        if (endhour == 12) {
+                    } else if  (end1.contains("A") && starthour == 12) {
                             endhour = 0;
-                        }
                     }
+                    if (end1.contains("P") && endhour != 12) {
+                        endhour = endhour + 12;
+                    } else if  (end1.contains("A") && endhour == 12) {
+                            endhour = 0;
+                    }
+
                     if (starthour < endhour) {
                         good2 = true;
                     } else if (starthour == endhour && startmin < endmin) {
@@ -198,7 +195,7 @@ public class Create_Peak_Add_Pitch extends AppCompatActivity implements TimePick
             stime.setText(start1);
             Snackbar.make(starttime, "Time changed!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
-        } else if (fromstart) {
+        } else  {
             end1 = String.format("%02d:%02d", hourOfDay, minute);
             end1 = end1 + format;
             etime.setText(end1);
