@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
-
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -37,6 +36,7 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Realm.init(this);
         Realm realm = Realm.getDefaultInstance();
         setContentView(R.layout.activity_create_peak__add_phases);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -80,7 +80,6 @@ public class CreatePeak_AddPhases extends AppCompatActivity implements DatePicke
                             .setAction("Action", null).show();
                 }
                 else if (phaseStartDate.compareTo(phaseEndDate) < 0) {
-                        //need to check if phase start date and phase end date exist
                         Realm realm = Realm.getDefaultInstance();
                         Peak parentPeak = realm.where(Peak.class).equalTo("name", peak_name).findFirst();
                         Phase p = new Phase(phaseStartDate, phaseEndDate, phase_name, phase_description); //fix the date here

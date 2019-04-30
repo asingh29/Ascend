@@ -75,7 +75,7 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
         startDate = findViewById(R.id.starter);
         endDate = findViewById(R.id.ender);
         Intent i = getIntent();
-        boolean peakSet = i.getBooleanExtra("peakSet", false);
+        final boolean peakSet = i.getBooleanExtra("peakSet", false);
         if (peakSet) {
             n = i.getStringExtra("peakname");
             Peak curPeak = realm.where(Peak.class).equalTo("name", n).findFirst();
@@ -103,8 +103,13 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
             public void onClick(View view) {
                 n = (String) name.getText().toString();
                 d = (String) desc.getText().toString();
+                if (peakSet) {
+                    Intent i = new Intent(createPeak.this, YourPeaks.class);
+                    startActivity(i);
+                    finish();
+                }
 
-                if (n.length() == 0) {
+                else if (n.length() == 0) {
                     Snackbar.make(view, "Need a name!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
 
@@ -126,10 +131,12 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                     if (marathon == null) {
                         realm.copyToRealm(p);
                         realm.commitTransaction();
-                        finish();
+                        Intent i = new Intent(createPeak.this, HomePage.class);
+                        startActivity(i);
                     } else {
                         Snackbar.make(view, "No duplicate peaks!", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
+                        realm.commitTransaction();
                     }
                 } else {
                     Snackbar.make(view, "Start date cannot be after end date!", Snackbar.LENGTH_LONG)
@@ -190,6 +197,8 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                             realm.copyToRealm(p);
                             realm.commitTransaction();
                             Intent i = new Intent(createPeak.this, CreatePeak_AddPhases.class);
+                            i.putExtra("start", p.start);
+                            i.putExtra("end", p.end);
                             i.putExtra("peakname", n);
                             startActivity(i);
                         }
