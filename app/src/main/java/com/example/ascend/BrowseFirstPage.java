@@ -63,14 +63,14 @@ public class BrowseFirstPage extends AppCompatActivity {
         Realm realm = Realm.getDefaultInstance();
 
         Calendar cal = new GregorianCalendar();
-        cal.set(2019,4,30);
+        cal.set(2019,3,30);
         Date peakStartDate = cal.getTime();
-        cal.set(2019, 6, 30);
+        cal.set(2019, 5, 30);
         Date peakEndDate = cal.getTime();
         Peak peak1 = new Peak("Run a Marathon", "Train for two months to run the Boston Marathon on June 10th", peakStartDate, peakEndDate, true);
-        cal.set(2019, 4, 30);
+        cal.set(2019, 3, 30);
         Date phase1Start = cal.getTime();
-        cal.set(2019, 5, 10);
+        cal.set(2019, 4, 10);
         Date phase1End = cal.getTime();
         Phase phase1 = new Phase(phase1Start, phase1End, "The Beginning", "Build good training habits and fundamental strength/endurance");
         String pitch1Start = "9:00 AM";
@@ -83,12 +83,12 @@ public class BrowseFirstPage extends AppCompatActivity {
         phase1.addPitch(pitch1);
         phase1.addPitch(pitch2);
         phase1.addPitch(pitch3);
-        phase1.active = true;
+        phase1.active = false;
         peak1.addPhase(phase1);
 
-        cal.set(2019, 5, 11);
+        cal.set(2019, 4, 11);
         Date phase2Start = cal.getTime();
-        cal.set(2019, 6, 30);
+        cal.set(2019, 5, 30);
         Date phase2End = cal.getTime();
         Phase phase2 = new Phase(phase2Start, phase2End, "The End", "Solidify muscle foundation and up weekly mileage");
         Pitch p1 = new Pitch("6 mile run", "Warmup, stretch, run 6 mile route in through Patterson Park, cooldown, stretch", pitch1Start, pitch1End, false, true, false, true, false, true, false);
@@ -97,12 +97,13 @@ public class BrowseFirstPage extends AppCompatActivity {
         phase2.addPitch(p1);
         phase2.addPitch(p2);
         phase2.addPitch(p3);
+        phase2.active = false;
         peak1.addPhase(phase2);
 
         Peak peak2 = new Peak("Study for MCAT", "Spend two months studying for the MCAT", peakStartDate, peakEndDate, true);
-        cal.set(2019, 4, 30);
+        cal.set(2019, 3, 30);
         phase1Start = cal.getTime();
-        cal.set(2019, 5, 10);
+        cal.set(2019, 4, 10);
         phase1End = cal.getTime();
         phase1 = new Phase(phase1Start, phase1End, "Study Books", "Build good study habits and complete necessary readings");
         pitch1Start = "9:00 AM";
@@ -115,12 +116,12 @@ public class BrowseFirstPage extends AppCompatActivity {
         phase1.addPitch(pitch1);
         phase1.addPitch(pitch2);
         phase1.addPitch(pitch3);
-        phase1.active = true;
+        phase1.active = false;
         peak2.addPhase(phase1);
 
-        cal.set(2019, 5, 11);
+        cal.set(2019, 4, 11);
         phase2Start = cal.getTime();
-        cal.set(2019, 6, 30);
+        cal.set(2019, 5, 30);
         phase2End = cal.getTime();
         phase2 = new Phase(phase2Start, phase2End, "Practice", "Take a ton of practice exams");
         p1 = new Pitch("Practice Bio section", "take Bio practice exam", pitch1Start, pitch1End, false, true, true, true, false, true, false);

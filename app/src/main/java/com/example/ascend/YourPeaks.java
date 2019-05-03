@@ -87,7 +87,7 @@ public class YourPeaks extends AppCompatActivity {
         Log.d(TAG, "initCurPitches: called");
         curPeaks.clear();
         Realm realm = Realm.getDefaultInstance();
-        RealmResults<Peak> p = realm.where(Peak.class).findAll();
+        RealmResults<Peak> p = realm.where(Peak.class).equalTo("browse", false).findAll();
         for (int i = 0; i < p.size(); i++) {
             Peak cur = p.get(i);
             curPeaks.add(cur);

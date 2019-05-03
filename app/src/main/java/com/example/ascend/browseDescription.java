@@ -98,6 +98,8 @@ public class browseDescription extends AppCompatActivity {
         realm.beginTransaction();
         peaky.browse = false;
         realm.commitTransaction();
+        Intent i = new Intent(browseDescription.this, YourPeaks.class);
+        startActivity(i);
     }
 
 }

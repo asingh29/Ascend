@@ -73,10 +73,15 @@ public class HomePage extends AppCompatActivity {
         navigation.setItemIconTintList(null);
         Date curDate = GregorianCalendar.getInstance().getTime();
         realm.beginTransaction();
-        RealmResults<Phase> phases = realm.where(Phase.class).findAll();
-        for (Phase p : phases) {
-            if (p.start.compareTo(curDate) < 0 && p.end.compareTo(curDate) > 0 ) p.active = true;
-            else p.active = false;
+        RealmResults<Peak> peaks = realm.where(Peak.class).equalTo("browse", false).findAll();
+        ArrayList<Phase> phases;
+        RealmList<Phase> p;
+        for (Peak i : peaks) {
+            p = i.phase;
+            for (Phase t : p) {
+                if (t.start.compareTo(curDate) < 0 && t.end.compareTo(curDate) > 0 ) t.active = true;
+                else t.active = false;
+            }
         }
         realm.commitTransaction();
         curPitches = new ArrayList<Pitch>();
