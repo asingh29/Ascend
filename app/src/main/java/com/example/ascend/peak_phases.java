@@ -181,10 +181,12 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         Peak peaky = realm.where(Peak.class).equalTo("name", peakname).findFirst();
-
-        for (int i = 0; i < peaky.phase.size(); i++) {
+        int len = peaky.phase.size();
+        Log.d(TAG, "onClick: " + len);
+        for (int i = 0; i < len; i++) {
             Phase cur = peaky.phase.get(i);
             RealmList<Pitch> phasey = cur.all;
+            Log.d(TAG, "onClick: " + cur.name);
             for (int j = 0; j < phasey.size(); j++) {
                 Pitch cur2 = phasey.get(j);
                 cur2.deleteFromRealm();
@@ -224,8 +226,8 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
                 Pitch cur2 = saturday.get(j);
                 cur2.deleteFromRealm();
             }
-            cur.deleteFromRealm();
         }
+        peaky.phase.deleteAllFromRealm();
         peaky.deleteFromRealm();
 
         realm.commitTransaction();
