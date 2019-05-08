@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -66,7 +67,7 @@ public class RecyclerViewAdapterPeak extends  RecyclerView.Adapter<RecyclerViewA
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        Button name;
+        TextView name;
         ConstraintLayout layout;
 
         public ViewHolder(@NonNull View itemView) {

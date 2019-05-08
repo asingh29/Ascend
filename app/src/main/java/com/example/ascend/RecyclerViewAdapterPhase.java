@@ -10,12 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerViewAdapterPhase.ViewHolder> {
-    private static final String TAG = "RecyclerViewAdapterPhas";
+    private static final String TAG = "RecyclerViewAdapterPhase";
 
     private ArrayList<Phase> phases;
     private Context nContext;
@@ -68,7 +69,7 @@ public class RecyclerViewAdapterPhase extends  RecyclerView.Adapter<RecyclerView
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        Button phase;
+        TextView phase;
         //Button details;
         ConstraintLayout layout;
 
