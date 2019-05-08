@@ -124,7 +124,7 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                 }
 
                 else if (peak_start_date.compareTo(peak_end_date) < 0) {
-                    Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
+                    Peak p = new Peak(n, d, peak_start_date, peak_end_date, false); //fix the date here
                     Realm realm = Realm.getDefaultInstance();
                     realm.beginTransaction();
                     Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
@@ -189,7 +189,7 @@ public class createPeak extends AppCompatActivity implements DatePickerDialog.On
                             .setAction("Action", null).show();
                 }
                 else if (peak_start_date.compareTo(peak_end_date) < 0) {
-                        Peak p = new Peak(n, d, peak_start_date, peak_end_date, true); //fix the date here
+                        Peak p = new Peak(n, d, peak_start_date, peak_end_date, false); //fix the date here
                         Realm realm = Realm.getDefaultInstance();
                         realm.beginTransaction();
                         Peak marathon = realm.where(Peak.class).equalTo("name", n).findFirst();
