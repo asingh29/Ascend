@@ -112,13 +112,13 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
             }
         });
 
-        Button delete = (Button) findViewById(R.id.deletePitch);
+        final Button delete = (Button) findViewById(R.id.deletePitch);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v, "Pitch Deleted", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                deletePitch();
+                deletePitch(delete);
             }
         });
 
@@ -177,12 +177,13 @@ public class pitchDescription extends AppCompatActivity implements TimePickerDia
         startActivity(i);
     }
 
-    protected void deletePitch() {
+    protected void deletePitch(View v) {
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         Pitch pitchy = realm.where(Pitch.class).equalTo("name", pitchName).findFirst();
         pitchy.deleteFromRealm();
         realm.commitTransaction();
+        Snackbar.make(v, "Pitch Deleted!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
         Intent i = new Intent(pitchDescription.this, phasetasks.class);
         i.putExtra("peakname", peakname);
         i.putExtra("phasename", phasename);

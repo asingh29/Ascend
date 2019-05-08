@@ -227,8 +227,9 @@ public class peak_phases extends AppCompatActivity implements DatePickerDialog.O
             cur.deleteFromRealm();
         }
         peaky.deleteFromRealm();
-
         realm.commitTransaction();
+        Snackbar.make(v, "Peak Deleted!", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
         Intent i = new Intent(peak_phases.this, YourPeaks.class);
         startActivity(i);
     }

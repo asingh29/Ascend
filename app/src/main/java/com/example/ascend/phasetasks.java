@@ -220,6 +220,8 @@ public class phasetasks extends AppCompatActivity implements DatePickerDialog.On
         }
         p.deleteFromRealm();
         realm.commitTransaction();
+        Snackbar.make(v, "Phase Deleted!", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
         Intent i = new Intent(phasetasks.this, peak_phases.class);
         i.putExtra("peakname", peakname);
         startActivity(i);
